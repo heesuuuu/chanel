@@ -108,6 +108,10 @@
   font-family: "mGothic";
 }
 
+@mixin ff-he {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 @mixin position($p: absolute, $t: null, $b: null, $l: null, $r: null) {
   position: $p;
   top: $t;
@@ -178,4 +182,3 @@
     margin: -5px;
   }
 }
-

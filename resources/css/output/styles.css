@@ -336,6 +336,41 @@ legend {
   background-color: #f8f8f8;
 }
 
+.sec-g {
+  overflow: hidden;
+  padding: 10vw 0;
+}
+.sec-g__tit {
+  padding-bottom: 2.34375vw;
+  font-size: 3rem;
+}
+.sec-g__more {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  font-size: 2rem;
+}
+@media (min-width: 600px) {
+  .sec-g__more {
+    right: 30px;
+  }
+}
+.sec-g__more::after {
+  content: "\f061";
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #e4e4e4;
+  border-radius: 50%;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -419,7 +454,7 @@ legend {
   justify-content: center;
   flex-direction: row;
   outline-offset: -0.4rem;
-  outline: 2px solid #246beb;
+  outline: 2px solid #111;
   font-size: 1.5rem;
   color: #fff;
   width: 100%;
@@ -507,7 +542,7 @@ legend {
   position: relative;
 }
 #gnb .gnb__depth1 > li:hover > a > span {
-  color: #246beb;
+  color: #111;
 }
 #gnb .gnb__depth1 > li:hover > a > span::after {
   width: 100%;
@@ -546,7 +581,7 @@ legend {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: #246beb;
+  background: #111;
   transition: all 0.3s;
 }
 #gnb .gnb__depth2 {
@@ -663,41 +698,6 @@ legend {
   left: 0;
 }
 
-.sec-g {
-  overflow: hidden;
-  padding: 10vw 0;
-}
-.sec-g__tit {
-  padding-bottom: 2.34375vw;
-  font-size: 3rem;
-}
-.sec-g__more {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  top: 17px;
-  right: 20px;
-  font-size: 2rem;
-}
-@media (min-width: 600px) {
-  .sec-g__more {
-    right: 30px;
-  }
-}
-.sec-g__more::after {
-  content: "\f061";
-  font-family: "Line Awesome Free";
-  font-weight: 900;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: #e4e4e4;
-  border-radius: 50%;
-}
-
 .main {
   overflow: hidden;
   width: 100%;
@@ -727,8 +727,7 @@ legend {
   z-index: 0;
   background: linear-gradient(180deg, rgba(103, 103, 103, 0.04), rgba(201, 196, 196, 0.03), #000 95.89%);
 }
-
-.mTit {
+.main .mTit {
   position: absolute;
   font-size: 12.9rem;
   font-family: chanel;
@@ -737,6 +736,17 @@ legend {
   white-space: nowrap;
   overflow: hidden;
   animation: mTit 13s linear infinite;
+}
+@media (min-width: 600px) {
+  .main .mTit {
+    font-size: 30rem;
+  }
+}
+@media (min-width: 1024px) {
+  .main .mTit {
+    font-size: 60rem;
+    color: red;
+  }
 }
 
 .sec1_title {
@@ -843,7 +853,7 @@ legend {
   background-color: var(--background-color-gray);
   border-radius: 50px;
   gap: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 .sec2-btn img {
   width: 14px;
@@ -957,6 +967,16 @@ legend {
   inset: 0%;
 }
 
+.section-teamvid {
+  position: relative;
+}
+.section-teamvid .video-teamvid {
+  width: 100%;
+  height: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .tvid__control-wrapper {
   z-index: 1050;
   grid-column-gap: 10px;
@@ -969,8 +989,16 @@ legend {
   position: absolute;
   inset: 30px 30px auto auto;
 }
+.tvid__control-wrapper.sound-on .audio-off {
+  display: block;
+}
+.tvid__control-wrapper.sound-on .audio-on {
+  display: none;
+}
+.tvid__control-wrapper .audio-off {
+  display: none;
+}
 .tvid__control-wrapper .tvid__audio-toggle {
-  opacity: 0;
   -webkit-backdrop-filter: brightness(150%) blur(30px);
   backdrop-filter: brightness(150%) blur(30px);
   background-color: rgba(219, 219, 219, 0.2509803922);
@@ -999,6 +1027,9 @@ legend {
   width: 100%;
   height: 100%;
   padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .section4 .sec4-box {
   width: 100%;
@@ -1125,16 +1156,23 @@ legend {
   margin: 0 0 0 17px;
 }
 
-.section7 {
+.sec-ad {
   width: 100vw;
   height: 100%;
   margin-top: 107px;
 }
-.section7 .sec7-video iframe {
-  -o-object-fit: cover;
-     object-fit: cover;
+.sec-ad .sec-g__tit {
+  color: red;
+}
+.sec-ad .sec7-video {
+  position: relative;
   width: 100%;
-  height: 678px;
+  padding-bottom: 56.25%;
+}
+.sec-ad .sec7-video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 footer {

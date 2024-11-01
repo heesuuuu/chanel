@@ -111,7 +111,7 @@ input {
   }
 }
 
-button {  
+button {
   appearance: button;
   border-radius: 0;
 }
@@ -133,10 +133,10 @@ input {
 /* 기본 폰트 설정 */
 /* mobile */
 html {
-  font-size: $font-size-root;
+  font-size: $font-size-root; // 62.5% 10px = 1rem
 }
 body {
-  font-size: $font-size-base;
+  font-size: $font-size-base; // 17px
   line-height: $line-height-base;
   font-family: $font-family-base;
   color: $font-color-base;

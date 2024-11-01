@@ -4,6 +4,7 @@
   height: 690px;
   flex-shrink: 0;
   position: relative;
+
   .main-img {
     position: relative;
   }
@@ -25,16 +26,24 @@
     z-index: 0;
     background: linear-gradient(180deg, rgb(103 103 103 / 4%), rgb(201 196 196 / 3%), #000 95.89%);
   }
-}
-.mTit {
-  position: absolute;
-  font-size: 12.9rem;
-  font-family: chanel;
-  color: white;
-  top: 60%;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: mTit 13s linear infinite;
+
+  .mTit {
+    position: absolute;
+    font-size: 12.9rem;
+    font-family: chanel;
+    color: white;
+    top: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: mTit 13s linear infinite;
+    @include mobileMore {
+      font-size: 30rem;
+    }
+    @include tabletMore {
+      font-size: 60rem;
+      color: red;
+    }
+  }
 }
 
 // font animation
@@ -163,7 +172,7 @@
   background-color: var(--background-color-gray);
   border-radius: 50px;
   gap: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
   img {
     width: 14px;
     margin: -2px auto;
@@ -275,6 +284,16 @@
     }
   }
 }
+
+.section-teamvid {
+  position: relative;
+  .video-teamvid {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+  }
+}
+
 .tvid__control-wrapper {
   z-index: 1050;
   grid-column-gap: 10px;
@@ -286,8 +305,18 @@
   display: flex;
   position: absolute;
   inset: 30px 30px auto auto;
+  &.sound-on {
+    .audio-off {
+      display: block;
+    }
+    .audio-on {
+      display: none;
+    }
+  }
+  .audio-off {
+    display: none;
+  }
   .tvid__audio-toggle {
-    opacity: 0;
     -webkit-backdrop-filter: brightness(150%) blur(30px);
     backdrop-filter: brightness(150%) blur(30px);
     background-color: #dbdbdb40;
@@ -318,11 +347,13 @@
   width: 100%;
   height: 100%;
   padding: 100px 0;
+  @include flexCenter;
+
   .sec4-box {
     width: 100%;
     height: 852px;
     background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    @include ff-he;
     font-size: 14px;
     color: #000;
     margin: 0;
@@ -457,15 +488,23 @@
   }
 }
 
-.section7 {
+.sec-ad {
   width: 100vw;
   height: 100%;
   margin-top: 107px;
-
-  .sec7-video iframe {
-    object-fit: cover;
+  .sec-g__tit {
+    color: red;
+  }
+  .sec7-video {
+    position: relative;
     width: 100%;
-    height: 678px;
+    // 16 : 9 = 100% : 56.25%
+    padding-bottom: 56.25%;
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 footer {
