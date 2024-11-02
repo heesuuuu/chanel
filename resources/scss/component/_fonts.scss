@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 
+
 @font-face {
-    font-family: chanel;
-    src: url(../../../resources/fonts/couture-bld.otf);
-  }
+  font-family: "chanel";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Couture Bold"), url("couture-bld.woff") format("woff");
+}

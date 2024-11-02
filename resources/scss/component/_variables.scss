@@ -10,7 +10,7 @@ $primary: #111;
 $secondary: #003675;
 
 // Grayscale
-$gray-0: #ffffff; // background-base
+$gray-0: #ffffff; 
 $gray-5: #f8f8f8; // background
 $gray-10: #f0f0f0; // background
 $gray-20: #e4e4e4; // disabled
@@ -21,7 +21,7 @@ $gray-60: #717171; // 입력창 기본 상태
 $gray-70: #555555; // text-body, detail text
 $gray-80: #2d2d2d;
 $gray-90: #1d1d1d; // text-title
-$gray-100: #000000;
+$gray-100: #000000; // background-base
 
 // background-translate
 $background-translate-0:rgba(255, 255, 255, 0.00); //translate
@@ -30,6 +30,8 @@ $background-translate-90:rgba(000 , 000, 000, 0.45); // --background-color-trans
 
 
 // font-style
+
+$font-family-chanel: "chanel", sans-serif !default;
 $font-family-base: "Noto Sans KR", sans-serif !default;
 $font-size-root: 62.5% !default; //10px 1rem으로 설정
 $font-size-base: 1.7rem !default;

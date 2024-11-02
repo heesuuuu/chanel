@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 @font-face {
-  font-family: chanel;
-  src: url(../../../resources/fonts/couture-bld.otf);
+  font-family: "chanel";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Couture Bold"), url("couture-bld.woff") format("woff");
 }
 :root {
   --font-color-black:#000;
@@ -749,30 +751,29 @@ legend {
   }
 }
 
-.sec1_title {
+.desc-title {
   padding: 0 20px;
   margin: 10px 0 0 0;
   color: var(--font-color-white);
 }
-.sec1_title .tit-s {
+.desc-title .txt-s {
   display: inline-block;
   line-height: 1;
   font-size: 1.55rem;
   font-weight: 300;
   margin-right: 4rem;
 }
-.sec1_title .tit-m {
+.desc-title .txt-m {
   display: inline;
 }
-.sec1_title .tit-m,
-.sec1_title .tit-l {
+.desc-title .txt-m,
+.desc-title .txt-l {
   font-size: 2.875rem;
   font-weight: 300;
   line-height: 1.55;
 }
 
 .product {
-  margin: 86px 20px;
   grid-row-gap: 60px;
   flex-direction: column;
   flex: none;
@@ -780,11 +781,27 @@ legend {
   align-items: stretch;
   display: flex;
 }
-.product .prd_container {
+.product .inner {
+  margin: 86px 0;
+}
+@media screen and (max-width: 479px) {
+  .product .inner .teamvid__section {
+    height: 170vw;
+    max-height: none;
+    margin-left: -6vw;
+    margin-right: -6vw;
+  }
+  .product .inner .tvid__control-wrapper {
+    top: 6vw;
+    right: 6vw;
+  }
+}
+.product .inner .prd-container {
   z-index: 20;
   position: relative;
 }
-.product .prd_container .items {
+.product .inner .prd-container .items {
+  margin-bottom: 80px;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
   flex-wrap: wrap;
@@ -794,7 +811,7 @@ legend {
   display: grid;
   justify-items: center;
 }
-.product .prd_container .items .item-box {
+.product .inner .prd-container .items .item-box {
   width: 100%;
   height: 100%;
   transform: translateY(0%) scale(1);
@@ -803,7 +820,7 @@ legend {
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.12);
 }
-.product .prd_container .items .item-box .item-list__link {
+.product .inner .prd-container .items .item-box .item-list__link {
   width: 100%;
   z-index: 1;
   /* background-color: var(--box); */
@@ -819,7 +836,7 @@ legend {
   position: relative;
   overflow: hidden;
 }
-.product .prd_container .items .item-box .item-list__link .item_img {
+.product .inner .prd-container .items .item-box .item-list__link .item_img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -836,13 +853,13 @@ legend {
   display: block;
 }
 
-.sec2-btn-box {
+.item-btn-container {
   width: 100%;
   display: flex;
   gap: 20px;
 }
 
-.sec2-btn {
+.item-btn {
   margin: 0 auto;
   width: 168px;
   height: 50px;
@@ -855,7 +872,7 @@ legend {
   gap: 10px;
   font-size: 1.4rem;
 }
-.sec2-btn img {
+.item-btn img {
   width: 14px;
   margin: -2px auto;
 }
@@ -1023,7 +1040,7 @@ legend {
   position: absolute;
 }
 
-.section4 {
+.branding-slide {
   width: 100%;
   height: 100%;
   padding: 100px 0;
@@ -1031,7 +1048,7 @@ legend {
   justify-content: center;
   align-items: center;
 }
-.section4 .sec4-box {
+.branding-slide .slide__box {
   width: 100%;
   height: 852px;
   background: #eee;
