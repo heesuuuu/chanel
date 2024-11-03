@@ -65,6 +65,22 @@
   opacity: 1;
 }
 
+@mixin playbtn {
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: $blur-20;
+  background-color: $gray-70;
+}
+@mixin positon-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 // 말줄임
 @mixin ell {
   display: inline-block;
