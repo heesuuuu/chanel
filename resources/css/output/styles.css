@@ -1231,11 +1231,12 @@ legend {
 }
 
 .model-box {
-  position: relative;
+  background-color: #fff;
+  border-radius: 16px;
   height: 100vh;
   max-height: 1000px;
   display: flex;
-  border-radius: 16px;
+  position: relative;
   overflow: hidden;
 }
 .model-box .mod-vid-container {
@@ -1256,6 +1257,86 @@ legend {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.model-box .embed__wrapper {
+  position: absolute;
+  inset: 0;
+}
+.model-box .embed__wrapper .mod-embed {
+  z-index: -1;
+  background-color: #f1f1f1;
+  width: 900%;
+  height: 100%;
+  position: absolute;
+  inset: 0 -400%;
+}
+.model-box .embed__wrapper .mod-embed .modvideo {
+  width: 100%;
+  height: 100%;
+}
+.model-box .mod-vid-container {
+  position: relative;
+}
+.model-box .mod-vid-container .mod-txt-container {
+  position: absolute;
+}
+.model-box .mod-vid-container .mod-txt-container .mod-heading {
+  flex-direction: column;
+  flex: none;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+}
+.model-box .mod-vid-container .mod-txt-container .mod-heading .mod__main-heading {
+  position: absolute;
+  color: var(--colors--white);
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 50px;
+  line-height: 1;
+}
+@media (min-width: 600px) {
+  .model-box .mod-vid-container .mod-txt-container .mod-heading .mod__main-heading {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 35px;
+    line-height: 1.1;
+  }
+}
+@media (min-width: 1024px) {
+  .model-box .mod-vid-container .mod-txt-container .mod-heading .mod__main-heading {
+    font-size: 45px;
+  }
+}
+.model-box .mod-vid-container .mod-txt-container .mod-heading .mod__main-heading .main-txt__item {
+  font-size: 35px;
+  transform: translate(0, 100%);
+  padding: 0.15em 0.5em;
+  display: inline-block;
+  transform: translate(0, 0%);
+  transition-duration: 1s;
+  transition-delay: calc(0.2s + 0.05s * var(--index));
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-property: transform;
+}
+.model-box .mod-vid-container .mod-txt-container .mod-heading .mod__txt-block {
+  position: absolute;
+  display: inline-block;
+  color: #000;
+  flex: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100%;
+  font-size: 24px;
+}
+.model-box .mod-vid-container .mod-txt-container .mod-heading .mod__txt-block .mod__txt {
+  display: inline-block;
+}
+@media (min-width: 600px) {
+  .model-box .mod-vid-container .mod-txt-container .mod-heading .mod__txt-block .mod__txt {
+    font-size: 18px;
+  }
 }
 
 footer {
