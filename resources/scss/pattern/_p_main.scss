@@ -27,21 +27,24 @@
     background: linear-gradient(180deg, rgb(103 103 103 / 4%), rgb(201 196 196 / 3%), #000 95.89%);
   }
 
-  .mTit {
+  .mercury {
     position: absolute;
+    top: 70%;
+    display: flex;
+  }
+  .m-tit {
     font-size: 12.9rem;
     font-family: chanel;
     color: white;
-    top: 70%;
     white-space: nowrap;
-    overflow: hidden;
-    animation: mTit 40s linear infinite;
-    @keyframes mTit {
+    // overflow: hidden;
+    animation: m-tit 10s linear infinite;
+    @keyframes m-tit {
       0% {
-        transform: translate3d(0, 0, 0);
+        transform: translateX(0);
       }
       100% {
-        transform: translate3d(-100%, 0, 0);
+        transform: translateX(-100%);
       }
     }
   }
@@ -188,7 +191,7 @@
   }
 }
 
-.tvid__control-wrapper {
+.cocovid__control-wrapper {
   z-index: 2;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
@@ -210,7 +213,7 @@
   .audio-off {
     display: none;
   }
-  .tvid__audio-toggle {
+  .cocovid__audio-toggle {
     width: 70px;
     height: 70px;
     margin-top: 0;
@@ -219,7 +222,7 @@
     transform: scale(0.5);
     @include playbtn;
 
-    .vid-audio-icon {
+    .cocovid-audio-icon {
       z-index: 3;
       opacity: 1;
       transform: scale3d(1none, 1none, 1none);
@@ -383,7 +386,8 @@
 // tvid__section test
 
 .mod-section {
-  background-color: #f4f4f4;
+  position: relative;
+  // background-color: #f4f4f4;
   color: white;
   border-radius: 16px;
   width: 100%;
@@ -391,6 +395,16 @@
   max-height: none;
   display: block;
   overflow: hidden;
+  .tvid__video-container {
+    background-color: #f4f4f4;
+  }
+  .tvid__cursor-container {
+    position: absolute;
+    z-index: 15;
+    top: 35%;
+    @include posX;
+    @include playbtn;
+  }
 }
 .tvid__video__item {
   position: relative;
@@ -549,19 +563,21 @@
     }
   }
   .footer-buttom {
-    .buttom-txt {
+    position: absolute;
+    display: flex;
+    .buttom-tit {
       color: $white;
       font-size: 35vw;
-      font-weight: 700;
+      font-weight: $font-bold;
       white-space: nowrap;
-      animation: buttom-txt 5s linear infinite;
+      animation: buttom-tit 10s linear infinite;
 
-      @keyframes buttom-txt {
+      @keyframes buttom-tit {
         0% {
-          transform: translate3d(0, 0, 0);
+          transform: translateX(0);
         }
         100% {
-          transform: translate3d(-100%, 0, 0);
+          transform: translateX(-100%);
         }
       }
     }

@@ -73,6 +73,8 @@
   justify-content: center;
   backdrop-filter: $blur-20;
   background-color: $gray-70;
+  width: 80px;
+  height: 80px;
 }
 @mixin positon-center {
   position: absolute;

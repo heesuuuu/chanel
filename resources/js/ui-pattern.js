@@ -50,6 +50,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+//< -- mod-playbtn -- >
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   // vid-playcircle 요소를 선택
+//   const playButton = document.querySelector(".vid-playcircle");
+//   const video = document.querySelector(".cocovid-boxvid");
+
+//   // 클릭 이벤트 리스너 추가
+//   playButton.addEventListener("click", function() {
+//       // 비디오가 재생 중이 아니라면 재생
+//       if (video.paused) {
+//           video.play();
+//           playButton.style.display = "none"; // play 버튼 숨기기
+//       } else {
+//           video.pause();
+//           playButton.style.display = "block"; // play 버튼 다시 보이기
+//       }
+//   });
+
+//   // 비디오가 끝났을 때 play 버튼 다시 보이기
+//   video.addEventListener("ended", function() {
+//       playButton.style.display = "flex";
+//   });
+// });
+
+
 
 
 
