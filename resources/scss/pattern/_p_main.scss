@@ -173,8 +173,14 @@
     z-index: 3;
     width: 80px;
     height: 80px;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     @include playbtn;
     @include positon-center;
+    &:hover {
+      width: 13rem;
+      height: 13rem;
+      background: $white;
+    }
     .vid-playbtn {
       width: 16px;
       height: 18px;
@@ -219,18 +225,38 @@
     margin-top: 0;
     margin-right: 0;
     transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transform: scale(0.5);
+    // transform: scale(0.5);
     @include playbtn;
 
-    .cocovid-audio-icon {
-      z-index: 3;
-      opacity: 1;
-      transform: scale3d(1none, 1none, 1none);
-      transform-style: preserve-3d;
-      width: 25px;
-      transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-      position: absolute;
+    &:hover {
+      width: 50px;
+      height: 50px;
+      background-color: $white;
+      margin: -5px;
     }
+    @include tablet {
+      &:hover {
+        width: 8rem;
+        height: 8rem;
+        margin: -5px;
+      }
+      width: 7rem;
+      height: 7rem;
+    }
+
+    @include mobile {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  .cocovid-audio-icon {
+    z-index: 3;
+    opacity: 1;
+    transform: scale3d(1none, 1none, 1none);
+    transform-style: preserve-3d;
+    width: 25px;
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    position: absolute;
   }
 }
 
@@ -387,7 +413,7 @@
 
 .mod-section {
   position: relative;
-  // background-color: #f4f4f4;
+  background-color: #f4f4f4;
   color: white;
   border-radius: 16px;
   width: 100%;
@@ -452,6 +478,7 @@
     position: relative;
     padding-left: 41px;
     padding-right: 41px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
     .tvid__video__wrapper {
       position: absolute;
       inset: 0%;
@@ -563,11 +590,10 @@
     }
   }
   .footer-buttom {
-    position: absolute;
     display: flex;
     .buttom-tit {
       color: $white;
-      font-size: 35vw;
+      font-size: 12.9rem;
       font-weight: $font-bold;
       white-space: nowrap;
       animation: buttom-tit 10s linear infinite;

@@ -26,32 +26,6 @@
   .items {
     grid-template-columns: 1fr 1fr !important;
   }
-  .teamvid__section {
-    height: 170vw;
-    max-height: none;
-    margin-left: -6vw;
-    margin-right: -6vw;
-  }
-}
-@media screen and (max-width: 991px) {
-  .teamvid__section {
-    height: 110vw;
-    max-height: 90vh;
-  }
-}
-@media (hover: hover) and (max-width: 767px) {
-  .teamvid__section {
-    border-radius: 0;
-    height: 120vw;
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-  .tvid__audio-toggle:hover {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    margin: -5px;
-  }
 }
 /* reset */
 body,
@@ -871,6 +845,7 @@ legend {
   z-index: 3;
   width: 80px;
   height: 80px;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -879,12 +854,15 @@ legend {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
-  width: 80px;
-  height: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.cocovid-container .vid-playcircle:hover {
+  width: 13rem;
+  height: 13rem;
+  background: #fff;
 }
 .cocovid-container .vid-playcircle .vid-playbtn {
   width: 16px;
@@ -928,7 +906,6 @@ legend {
   margin-top: 0;
   margin-right: 0;
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transform: scale(0.5);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -937,10 +914,31 @@ legend {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
-  width: 80px;
-  height: 80px;
 }
-.cocovid__control-wrapper .cocovid__audio-toggle .cocovid-audio-icon {
+.cocovid__control-wrapper .cocovid__audio-toggle:hover {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  margin: -5px;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .cocovid__control-wrapper .cocovid__audio-toggle {
+    width: 7rem;
+    height: 7rem;
+  }
+  .cocovid__control-wrapper .cocovid__audio-toggle:hover {
+    width: 8rem;
+    height: 8rem;
+    margin: -5px;
+  }
+}
+@media (max-width: 599px) {
+  .cocovid__control-wrapper .cocovid__audio-toggle {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.cocovid__control-wrapper .cocovid-audio-icon {
   z-index: 3;
   opacity: 1;
   transform: scale3d(1none, 1none, 1none);
@@ -1097,6 +1095,7 @@ legend {
 
 .mod-section {
   position: relative;
+  background-color: #f4f4f4;
   color: white;
   border-radius: 16px;
   width: 100%;
@@ -1123,8 +1122,6 @@ legend {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
-  width: 80px;
-  height: 80px;
 }
 
 .tvid__video__item {
@@ -1174,6 +1171,7 @@ legend {
   position: relative;
   padding-left: 41px;
   padding-right: 41px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
 }
 .tvid__video__item .tvid__heading-container .tvid__video__wrapper {
   position: absolute;
@@ -1289,12 +1287,11 @@ legend {
   gap: 15px;
 }
 #footer .footer-buttom {
-  position: absolute;
   display: flex;
 }
 #footer .footer-buttom .buttom-tit {
   color: #fff;
-  font-size: 35vw;
+  font-size: 12.9rem;
   font-weight: 700;
   white-space: nowrap;
   animation: buttom-tit 10s linear infinite;
