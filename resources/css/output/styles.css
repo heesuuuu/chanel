@@ -1104,16 +1104,26 @@ legend {
   display: block;
   overflow: hidden;
 }
-.mod-section .tvid__video-container {
-  background-color: #f4f4f4;
-}
 .mod-section .tvid__cursor-container {
+  z-index: 1000;
+  flex-direction: column;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+  display: flex;
   position: absolute;
-  z-index: 15;
-  top: 35%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+}
+.mod-section .tvid__cursor-container .mod-playchircle {
+  background-color: blue;
+  z-index: 3;
+  width: 80px;
+  height: 80px;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -1122,6 +1132,32 @@ legend {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mod-section .tvid__cursor-container .mod-playchircle:hover {
+  width: 13rem;
+  height: 13rem;
+  background: #fff;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .mod-section .tvid__cursor-container .mod-playchircle {
+    width: 8rem;
+    height: 8rem;
+    transform: scale(1);
+  }
+}
+.mod-section .tvid__cursor-container .mod-playchircle .mod-playbtn {
+  width: 16px;
+  height: 18px;
+}
+.mod-section .tvid__video-container {
+  background-color: #f4f4f4;
+  position: relative;
+  width: 100%;
+  height: 550px;
 }
 
 .tvid__video__item {
@@ -1132,17 +1168,17 @@ legend {
   width: 100%;
   height: 100%;
   display: flex;
-  z-index: 10;
+  z-index: 2;
 }
 .tvid__video__item .tvid__video__embed {
   z-index: -1;
-  width: auto;
+  width: 100%;
   height: 100%;
   inset: 0 -400%;
 }
 .tvid__video__item .tvid__video__embed .mod-vid {
   width: 100%;
-  height: 700px;
+  height: 550px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1157,7 +1193,7 @@ legend {
 }
 .tvid__video__item .iframe-overlay .tvid__gradient {
   z-index: 15px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 4%, #1f1f1f 97%, #1f1f1f 100%);
   height: 55%;
   position: absolute;
   inset: auto 0% 0%;
@@ -1166,12 +1202,12 @@ legend {
   z-index: 20;
   width: 100%;
   max-width: 1800px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 41px;
   display: flex;
-  position: relative;
-  padding-left: 41px;
-  padding-right: 41px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
+  position: absolute;
+  margin-bottom: 0;
+  bottom: 0;
 }
 .tvid__video__item .tvid__heading-container .tvid__video__wrapper {
   position: absolute;
@@ -1191,6 +1227,12 @@ legend {
   font-size: 35px;
   line-height: 1.1;
 }
+@media (max-width: 599px) {
+  .tvid__video__item .tvid__heading-container .tvid__heading .tvid__main-heading {
+    font-size: 24px;
+    line-height: 1.6;
+  }
+}
 .tvid__video__item .tvid__heading-container .tvid__heading .tvid__text-block {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -1202,6 +1244,10 @@ legend {
   width: 100%;
   font-size: 18px;
   display: flex;
+}
+.tvid__video__item .tvid__heading-container .tvid__heading .tvid__text-block .mod-desc {
+  opacity: 40%;
+  margin-left: 10px;
 }
 
 .tvid__nav__section {

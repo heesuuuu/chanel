@@ -181,6 +181,7 @@
       height: 13rem;
       background: $white;
     }
+
     .vid-playbtn {
       width: 16px;
       height: 18px;
@@ -421,15 +422,50 @@
   max-height: none;
   display: block;
   overflow: hidden;
+  .tvid__cursor-container {
+    z-index: 1000;
+    flex-direction: column;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+
+    display: flex;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    .mod-playchircle {
+      background-color: blue;
+      z-index: 3;
+      width: 80px;
+      height: 80px;
+      transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      @include playbtn;
+      @include positon-center;
+      &:hover {
+        width: 13rem;
+        height: 13rem;
+        background: $white;
+      }
+      @include tablet {
+        width: 8rem;
+        height: 8rem;
+        transform: scale(1);
+      }
+      .mod-playbtn {
+        width: 16px;
+        height: 18px;
+      }
+    }
+  }
+
   .tvid__video-container {
     background-color: #f4f4f4;
-  }
-  .tvid__cursor-container {
-    position: absolute;
-    z-index: 15;
-    top: 35%;
-    @include posX;
-    @include playbtn;
+    position: relative;
+    width: 100%;
+    height: 550px;
   }
 }
 .tvid__video__item {
@@ -440,16 +476,16 @@
   width: 100%;
   height: 100%;
   display: flex;
-  z-index: 10;
+  z-index: 2;
   .tvid__video__embed {
     z-index: -1;
-    width: auto;
+    width: 100%;
     height: 100%;
     // position: absolute;
     inset: 0 -400%;
     .mod-vid {
       width: 100%;
-      height: 700px;
+      height: 550px;
       object-fit: cover;
     }
   }
@@ -463,7 +499,7 @@
     transform: scaleZ(1.001);
     .tvid__gradient {
       z-index: 15px;
-      background-image: linear-gradient(to bottom, #0000, #1f1f1f);
+      background-image: linear-gradient(#0000 4%, #1f1f1f 97%, #1f1f1f 100%);
       height: 55%;
       position: absolute;
       inset: auto 0% 0%;
@@ -472,13 +508,15 @@
   .tvid__heading-container {
     z-index: 20;
     width: 100%;
+    // height: 100vh;
     max-width: 1800px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 0 41px;
     display: flex;
-    position: relative;
-    padding-left: 41px;
-    padding-right: 41px;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
+    position: absolute;
+    margin-bottom: 0;
+    bottom: 0;
+
     .tvid__video__wrapper {
       position: absolute;
       inset: 0%;
@@ -495,11 +533,15 @@
         margin-bottom: 14px;
         font-size: 35px;
         line-height: 1.1;
+        @include mobile {
+          font-size: 24px;
+          line-height: 1.6;
+        }
       }
       .tvid__text-block {
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        color: #fff;
+        color: $white;
         flex-wrap: wrap;
         flex: none;
         align-content: flex-start;
@@ -507,6 +549,11 @@
         width: 100%;
         font-size: 18px;
         display: flex;
+
+        .mod-desc {
+          opacity: 40%;
+          margin-left: 10px;
+        }
       }
     }
   }
