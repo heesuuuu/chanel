@@ -169,32 +169,7 @@
   //   margin-left: -40px;
   //   margin-right: -40px;
   // }
-  .teamvid__section {
-    height: 170vw;
-    max-height: none;
-    margin-left: -6vw;
-    margin-right: -6vw;
-  }
 }
 
 //video toggle
-@media screen and (max-width: 991px) {
-  .teamvid__section {
-    height: 110vw;
-    max-height: 90vh;
-  }
-}
-@media (hover: hover) and (max-width: 767px) {
-  .teamvid__section {
-    border-radius: 0;
-    height: 120vw;
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-  .tvid__audio-toggle:hover {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    margin: -5px;
-  }
-}
+
