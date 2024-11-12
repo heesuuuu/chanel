@@ -932,6 +932,17 @@ legend {
     margin: -5px;
   }
 }
+@media (min-width: 1024px) {
+  .cocovid__control-wrapper .cocovid__audio-toggle {
+    width: 7rem;
+    height: 7rem;
+  }
+  .cocovid__control-wrapper .cocovid__audio-toggle:hover {
+    width: 8rem;
+    height: 8rem;
+    margin: -5px;
+  }
+}
 @media (max-width: 599px) {
   .cocovid__control-wrapper .cocovid__audio-toggle {
     width: 4rem;
@@ -1105,7 +1116,7 @@ legend {
   overflow: hidden;
 }
 .mod-section .tvid__cursor-container {
-  z-index: 1000;
+  z-index: 3;
   flex-direction: column;
   flex: none;
   justify-content: center;
@@ -1117,6 +1128,11 @@ legend {
   top: 0%;
   bottom: 0%;
   right: 0%;
+}
+@media (min-width: 1024px) {
+  .mod-section .tvid__cursor-container {
+    width: 50%;
+  }
 }
 .mod-section .tvid__cursor-container .mod-playchircle {
   background-color: blue;
@@ -1132,10 +1148,6 @@ legend {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 .mod-section .tvid__cursor-container .mod-playchircle:hover {
   width: 13rem;
@@ -1192,11 +1204,12 @@ legend {
   transform: scaleZ(1.001);
 }
 .tvid__video__item .iframe-overlay .tvid__gradient {
-  z-index: 15px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0) 4%, #1f1f1f 97%, #1f1f1f 100%);
+  z-index: 15;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
   height: 55%;
   position: absolute;
   inset: auto 0% 0%;
+  margin-bottom: 4px;
 }
 .tvid__video__item .tvid__heading-container {
   z-index: 20;
@@ -1208,6 +1221,11 @@ legend {
   position: absolute;
   margin-bottom: 0;
   bottom: 0;
+}
+@media (min-width: 1024px) {
+  .tvid__video__item .tvid__heading-container {
+    transform: translate(0, -20%);
+  }
 }
 .tvid__video__item .tvid__heading-container .tvid__video__wrapper {
   position: absolute;
@@ -1224,13 +1242,13 @@ legend {
 .tvid__video__item .tvid__heading-container .tvid__heading .tvid__main-heading {
   margin-top: 0;
   margin-bottom: 14px;
-  font-size: 35px;
-  line-height: 1.1;
+  font-size: 24px;
+  line-height: 1.6;
 }
-@media (max-width: 599px) {
+@media (min-width: 1024px) {
   .tvid__video__item .tvid__heading-container .tvid__heading .tvid__main-heading {
-    font-size: 24px;
-    line-height: 1.6;
+    font-size: 45px;
+    line-height: 1.1;
   }
 }
 .tvid__video__item .tvid__heading-container .tvid__heading .tvid__text-block {
@@ -1244,6 +1262,11 @@ legend {
   width: 100%;
   font-size: 18px;
   display: flex;
+}
+@media (min-width: 1024px) {
+  .tvid__video__item .tvid__heading-container .tvid__heading .tvid__text-block {
+    font-size: 25px;
+  }
 }
 .tvid__video__item .tvid__heading-container .tvid__heading .tvid__text-block .mod-desc {
   opacity: 40%;
@@ -1260,8 +1283,7 @@ legend {
   overflow: auto;
   scrollbar-width: none;
 }
-
-.tvid__nav__container {
+.tvid__nav__section .tvid__nav__container {
   width: 100%;
   flex: none;
   width: auto;
@@ -1310,6 +1332,86 @@ legend {
 }
 .tvid__nav__item .tvid__nav__text-container .tvid__nav__function {
   opacity: 0.2;
+}
+
+.tvid__control-wrapper {
+  z-index: 4;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  flex-direction: row;
+  flex: none;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 30px 30px auto auto;
+}
+.tvid__control-wrapper.sound-on .audio-off {
+  display: block;
+}
+.tvid__control-wrapper.sound-on .audio-on {
+  display: none;
+}
+.tvid__control-wrapper .audio-off {
+  display: none;
+}
+.tvid__control-wrapper .modvid-audio__toggle {
+  width: 70px;
+  height: 70px;
+  margin-top: 0;
+  margin-right: 0;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background-color: rgba(219, 219, 219, 0.2509803922);
+}
+.tvid__control-wrapper .modvid-audio__toggle:hover {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  margin: -5px;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .tvid__control-wrapper .modvid-audio__toggle {
+    width: 7rem;
+    height: 7rem;
+  }
+  .tvid__control-wrapper .modvid-audio__toggle:hover {
+    width: 8rem;
+    height: 8rem;
+    margin: -5px;
+  }
+}
+@media (min-width: 1024px) {
+  .tvid__control-wrapper .modvid-audio__toggle {
+    width: 7rem;
+    height: 7rem;
+  }
+  .tvid__control-wrapper .modvid-audio__toggle:hover {
+    width: 8rem;
+    height: 8rem;
+    margin: -5px;
+  }
+}
+@media (max-width: 599px) {
+  .tvid__control-wrapper .modvid-audio__toggle {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.tvid__control-wrapper .modvid-audio__icon {
+  z-index: 3;
+  opacity: 1;
+  transform: scale3d(1none, 1none, 1none);
+  transform-style: preserve-3d;
+  width: 25px;
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  position: absolute;
 }
 
 #footer {

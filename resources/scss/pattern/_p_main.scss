@@ -244,6 +244,15 @@
       width: 7rem;
       height: 7rem;
     }
+    @include tabletMore {
+      &:hover {
+        width: 8rem;
+        height: 8rem;
+        margin: -5px;
+      }
+      width: 7rem;
+      height: 7rem;
+    }
 
     @include mobile {
       width: 4rem;
@@ -423,19 +432,25 @@
   display: block;
   overflow: hidden;
   .tvid__cursor-container {
-    z-index: 1000;
+    z-index: 3;
     flex-direction: column;
     flex: none;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 70vh;
-
     display: flex;
     position: absolute;
     top: 0%;
     bottom: 0%;
     right: 0%;
+    // @include tablet {
+    //   margin: auto;
+    //   width: 50%;
+    // }
+    @include tabletMore {
+      width: 50%;
+    }
     .mod-playchircle {
       background-color: blue;
       z-index: 3;
@@ -443,7 +458,7 @@
       height: 80px;
       transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
       @include playbtn;
-      @include positon-center;
+      // @include positon-center;
       &:hover {
         width: 13rem;
         height: 13rem;
@@ -498,11 +513,12 @@
     inset: 0%;
     transform: scaleZ(1.001);
     .tvid__gradient {
-      z-index: 15px;
-      background-image: linear-gradient(#0000 4%, #1f1f1f 97%, #1f1f1f 100%);
+      z-index: 15;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1f1f1f);
       height: 55%;
       position: absolute;
       inset: auto 0% 0%;
+      margin-bottom: 4px;
     }
   }
   .tvid__heading-container {
@@ -516,6 +532,9 @@
     position: absolute;
     margin-bottom: 0;
     bottom: 0;
+    @include tabletMore {
+      transform: translate(0, -20%);
+    }
 
     .tvid__video__wrapper {
       position: absolute;
@@ -528,14 +547,15 @@
       width: 100%;
       max-width: 550px;
       display: flex;
+
       .tvid__main-heading {
         margin-top: 0;
         margin-bottom: 14px;
-        font-size: 35px;
-        line-height: 1.1;
-        @include mobile {
-          font-size: 24px;
-          line-height: 1.6;
+        font-size: 24px;
+        line-height: 1.6;
+        @include tabletMore {
+          font-size: 45px;
+          line-height: 1.1;
         }
       }
       .tvid__text-block {
@@ -549,6 +569,9 @@
         width: 100%;
         font-size: 18px;
         display: flex;
+        @include tabletMore {
+          font-size: 25px;
+        }
 
         .mod-desc {
           opacity: 40%;
@@ -567,18 +590,19 @@
   inset: auto 0% 0;
   overflow: auto;
   scrollbar-width: none;
+  .tvid__nav__container {
+    width: 100%;
+    flex: none;
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    margin-right: auto;
+  }
 }
-.tvid__nav__container {
-  width: 100%;
-  flex: none;
-  width: auto;
-  max-width: none;
-  margin-left: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  display: flex;
-  margin-right: auto;
-}
+
 .tvid__nav__item {
   opacity: 1;
   // backdrop-filter: brightness(150%) blur(30px);
@@ -614,6 +638,75 @@
     .tvid__nav__function {
       opacity: 0.2;
     }
+  }
+}
+.tvid__control-wrapper {
+  z-index: 4;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  flex-direction: row;
+  flex: none;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 30px 30px auto auto;
+  &.sound-on {
+    .audio-off {
+      display: block;
+    }
+    .audio-on {
+      display: none;
+    }
+  }
+  .audio-off {
+    display: none;
+  }
+  .modvid-audio__toggle {
+    width: 70px;
+    height: 70px;
+    margin-top: 0;
+    margin-right: 0;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    @include playbtn;
+
+    &:hover {
+      width: 50px;
+      height: 50px;
+      background-color: $white;
+      margin: -5px;
+    }
+    @include tablet {
+      &:hover {
+        width: 8rem;
+        height: 8rem;
+        margin: -5px;
+      }
+      width: 7rem;
+      height: 7rem;
+    }
+    @include tabletMore {
+      &:hover {
+        width: 8rem;
+        height: 8rem;
+        margin: -5px;
+      }
+      width: 7rem;
+      height: 7rem;
+    }
+    @include mobile {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  .modvid-audio__icon {
+    z-index: 3;
+    opacity: 1;
+    transform: scale3d(1none, 1none, 1none);
+    transform-style: preserve-3d;
+    width: 25px;
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    position: absolute;
   }
 }
 
