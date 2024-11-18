@@ -1,0 +1,11 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/heesuuuu/chanel-3.git",
+  "author": "정희수 <gmltn3780@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^3.12.5"
+  }
+}
