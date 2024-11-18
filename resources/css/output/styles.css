@@ -728,6 +728,29 @@ legend {
   padding: 0 20px;
   margin: 10px 0 0 0;
   color: var(--font-color-white);
+  overflow: hidden;
+}
+.desc-title .txt-s,
+.desc-title .txt-m,
+.desc-title .txt-l {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.8s ease, opacity 0.7s ease;
+}
+.desc-title.visible .txt-s,
+.desc-title.visible .txt-m,
+.desc-title.visible .txt-l {
+  opacity: 1;
+  transform: translateY(0);
+}
+.desc-title.visible.visible .txt-s {
+  transition-delay: 0.2s;
+}
+.desc-title.visible.visible .txt-m {
+  transition-delay: 0.4s;
+}
+.desc-title.visible.visible .txt-l {
+  transition-delay: 0.6s;
 }
 .desc-title .txt-s {
   display: inline-block;
@@ -736,14 +759,31 @@ legend {
   font-weight: 300;
   margin-right: 4rem;
 }
+@media (min-width: 600px) {
+  .desc-title .txt-s {
+    font-size: 1.6rem;
+  }
+}
 .desc-title .txt-m {
   display: inline;
 }
 .desc-title .txt-m,
 .desc-title .txt-l {
-  font-size: 2.875rem;
+  font-size: 4vw;
   font-weight: 300;
   line-height: 1.55;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .desc-title .txt-m,
+  .desc-title .txt-l {
+    font-size: 4.075rem;
+  }
+}
+@media (max-width: 599px) {
+  .desc-title .txt-m,
+  .desc-title .txt-l {
+    font-size: 3rem;
+  }
 }
 
 .product {
@@ -775,11 +815,20 @@ legend {
 .product .inner .prd-container .items .item-box {
   width: 100%;
   height: 100%;
-  transform: translateY(0%) scale(1);
-  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-  transition-duration: 1s;
-  opacity: 1;
+  transition-duration: 0.1s;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
   background-color: rgba(255, 255, 255, 0.12);
+  transition-delay: var(--delay, 0s);
+}
+.product .inner .prd-container .items .item-box.motion-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product .inner .prd-container .items .item-box.motion-visible[data-delay] {
+  transition-delay: var(--delay, 0s);
 }
 .product .inner .prd-container .items .item-box .item-list__link {
   width: 100%;
@@ -1134,7 +1183,7 @@ legend {
     width: 50%;
   }
 }
-.mod-section .tvid__cursor-container .mod-playchircle {
+.mod-section .tvid__cursor-container .mod-playcircle {
   background-color: blue;
   z-index: 3;
   width: 80px;
@@ -1149,19 +1198,19 @@ legend {
           backdrop-filter: blur(20px);
   background-color: rgba(219, 219, 219, 0.2509803922);
 }
-.mod-section .tvid__cursor-container .mod-playchircle:hover {
+.mod-section .tvid__cursor-container .mod-playcircle:hover {
   width: 13rem;
   height: 13rem;
   background: #fff;
 }
 @media (min-width: 600px) and (max-width: 1023px) {
-  .mod-section .tvid__cursor-container .mod-playchircle {
+  .mod-section .tvid__cursor-container .mod-playcircle {
     width: 8rem;
     height: 8rem;
     transform: scale(1);
   }
 }
-.mod-section .tvid__cursor-container .mod-playchircle .mod-playbtn {
+.mod-section .tvid__cursor-container .mod-playcircle .mod-playbtn {
   width: 16px;
   height: 18px;
 }
@@ -1342,9 +1391,12 @@ legend {
   flex: none;
   justify-content: flex-end;
   align-items: center;
-  display: flex;
+  display: none;
   position: absolute;
   inset: 30px 30px auto auto;
+}
+.tvid__control-wrapper.sound-on {
+  display: flex;
 }
 .tvid__control-wrapper.sound-on .audio-off {
   display: block;

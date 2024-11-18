@@ -5,17 +5,25 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHANEL</title>
+
+    <!-- 스타일시트 -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../resources/css/pattern_css.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../resources/javascript/javascript.js"></script>
     <script src="https://kit.fontawesome.com/94e35ee2b7.js" crossorigin="anonymous"></script>
+
+    <!-- GSAP 라이브러리 로드 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- 프로젝트 스크립트 -->
+
+    <script defer src="../resources/javascript/javascript.js"></script>
     <script defer src="../resources/js/ui-pattern.js"></script>
     <script defer src="../resources/js/ui-swiper.js"></script>
   </head>
-  <body>
+  <body id="my-scrollbar">
     <div id="skip-nav">
       <a href="#gnb">메뉴 바로가기</a>
       <a href="#container">본문 바로가기</a>
@@ -157,21 +165,30 @@
           <div class="inner">
             <div class="prd-container">
               <div class="items">
-                <div class="item-box">
+                <div class="item-box page-loaded">
                   <a class="item-list__link" href="#">
                     <img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" />
                   </a>
                 </div>
-                <div class="item-box">
+                <div class="item-box page-loaded">
                   <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
                 </div>
-                <div class="item-box">
+                <div class="item-box page-loaded">
                   <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_4.png" alt="" /></a>
                 </div>
-                <div class="item-box">
+                <div class="item-box page-loaded">
                   <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
                 </div>
-                <div class="item-box">
+                <div class="item-box page-loaded">
+                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+                </div>
+                <div class="item-box page-loaded">
+                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+                </div>
+                <div class="item-box page-loaded">
+                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+                </div>
+                <div class="item-box page-loaded">
                   <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
                 </div>
               </div>
@@ -192,13 +209,13 @@
           <div class="cocovid sound-on">
             <video src="../resources/images/pattern/video/edition_jennie.mp4" class="cocovid-boxvid"></video>
             <div class="cocovid__control-wrapper">
-              <a class="cocovid__audio-toggle replay w-inline-block" href="#">
+              <div class="cocovid__audio-toggle replay w-inline-blockㄴ">
                 <img class="cocovid-audio-icon replay" src="../resources/images/pattern/icon/Icon_reset.svg" alt="" />
-              </a>
-              <a class="cocovid__audio-toggle w-inline-block" href="#">
+              </div>
+              <div class="cocovid__audio-toggle w-inline-block">
                 <img class="cocovid-audio-icon audio-off" src="../resources/images/pattern/icon/Icon_speakerOff.svg" alt="소리끄기 버튼" />
                 <img class="cocovid-audio-icon audio-on" src="../resources/images/pattern/icon/Icon_speakerOn.svg" alt="소리켜기 버튼" />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -307,26 +324,13 @@
           </div>
         </section>
 
-        <!-- model video section -->
-
-        <!-- <section class="sec-g sec-ad">
-          <div class="inner">
-            <!-- <h2 class="blind">샤넬 광고</h2> -->
-        <!-- <p class="sec-g__desc">섹션 설명글</p>
-            <div class="sec-g__cont">
-              <iframe src="https://www.youtube.com/embed/7B7EROlV1M0?si=UdqHzuLhNbkOKz0j&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <a href="#" class="sec-g__more">더보기</a>
-          </div>
-        </section> -->
-
         <!-- mod-video section -->
         <section class="mod__layout">
           <div class="inner">
             <h2>model video</h2>
             <div class="mod-section">
               <div class="tvid__cursor-container">
-                <div class="mod-playchircle" onclick="">
+                <div class="mod-playcircle" onclick="playVideo()">
                   <img src="../resources/images/pattern/icon/icon_play.svg" alt="모델 재생버튼" class="mod-playbtn" />
                 </div>
               </div>
@@ -338,67 +342,70 @@
                     </div>
                     <div class="iframe-overlay"><div class="tvid__gradient"></div></div>
                     <div class="tvid__heading-container">
-                      <div class="tvid__heading" ">
-                      <h2 class="tvid__main-heading">Chanel's fine jewelry collection, featuring Blackpink's Jennie, combines timeless elegance with modern sophistication. </h2>
-                      <div class="tvid__text-block">jennie <p class="mod-desc">jewelry</p></div>
+                      <div class="tvid__heading">
+                        <h2 class="tvid__main-heading">Chanel's fine jewelry collection, featuring Blackpink's Jennie, combines timeless elegance with modern sophistication.</h2>
+                        <div class="tvid__text-block">
+                          jennie
+                          <p class="mod-desc">jewelry</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="tvid__nav__section">
-              <div class="tvid__nav__container">
-                <div class="tvid__nav__item">
-                  <div class="tvid__nav__img-conatiner">
-                    <img src="../resources/images/pattern/main/sec7_video_h2.webp" alt="" class="tvid__nav__img" />
+              <div class="tvid__nav__section">
+                <div class="tvid__nav__container">
+                  <div class="tvid__nav__item">
+                    <div class="tvid__nav__img-conatiner">
+                      <img src="../resources/images/pattern/main/sec7_video_h2.webp" alt="" class="tvid__nav__img" />
+                    </div>
+                    <div class="tvid__nav__text-container">
+                      <div class="tvid__nav__name">Jenni</div>
+                      <div class="tvid__nav__function">Eishockey-Legende</div>
+                    </div>
                   </div>
-                  <div class="tvid__nav__text-container">
-                    <div class="tvid__nav__name">Jenni</div>
-                    <div class="tvid__nav__function">Eishockey-Legende</div>
+                  <div class="tvid__nav__item">
+                    <div class="tvid__nav__img-conatiner">
+                      <img src="../resources/images/pattern/main/sec7_video_h3.webp" alt="" class="tvid__nav__img" />
+                    </div>
+                    <div class="tvid__nav__text-container">
+                      <div class="tvid__nav__name">Jenni</div>
+                      <div class="tvid__nav__function">Eishockey-Legende</div>
+                    </div>
                   </div>
-                </div>
-                <div class="tvid__nav__item">
-                  <div class="tvid__nav__img-conatiner">
-                    <img src="../resources/images/pattern/main/sec7_video_h3.webp" alt="" class="tvid__nav__img" />
+                  <div class="tvid__nav__item">
+                    <div class="tvid__nav__img-conatiner">
+                      <img src="../resources/images/pattern/main/sec7_video_h4.webp" alt="" class="tvid__nav__img" />
+                    </div>
+                    <div class="tvid__nav__text-container">
+                      <div class="tvid__nav__name">Jenni</div>
+                      <div class="tvid__nav__function">Eishockey-Legende</div>
+                    </div>
                   </div>
-                  <div class="tvid__nav__text-container">
-                    <div class="tvid__nav__name">Jenni</div>
-                    <div class="tvid__nav__function">Eishockey-Legende</div>
-                  </div>
-                </div>
-                <div class="tvid__nav__item">
-                  <div class="tvid__nav__img-conatiner">
-                    <img src="../resources/images/pattern/main/sec7_video_h4.webp" alt="" class="tvid__nav__img" />
-                  </div>
-                  <div class="tvid__nav__text-container">
-                    <div class="tvid__nav__name">Jenni</div>
-                    <div class="tvid__nav__function">Eishockey-Legende</div>
-                  </div>
-                </div>
-                <div class="tvid__nav__item">
-                  <div class="tvid__nav__img-conatiner">
-                    <img src="../resources/images/pattern/main/sec7_video_h4.webp" alt="" class="tvid__nav__img" />
-                  </div>
-                  <div class="tvid__nav__text-container">
-                    <div class="tvid__nav__name">Jenni</div>
-                    <div class="tvid__nav__function">Eishockey-Legende</div>
+                  <div class="tvid__nav__item">
+                    <div class="tvid__nav__img-conatiner">
+                      <img src="../resources/images/pattern/main/sec7_video_h4.webp" alt="" class="tvid__nav__img" />
+                    </div>
+                    <div class="tvid__nav__text-container">
+                      <div class="tvid__nav__name">Jenni</div>
+                      <div class="tvid__nav__function">Eishockey-Legende</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="tvid__control-wrapper">
-              <a href="#" class="modvid-audio__toggle replay">
-                <img src="../resources/images/pattern/icon/Icon_reset.svg" alt="" class="modvid-audio__icon replay">
-              </a>
-              <a href="#" class="modvid-audio__toggle">
-                <img src="../resources/images/pattern/icon/Icon_speakerOff.svg" alt="" class="modvid-audio__icon audio-off">
-                <img src="../resources/images/pattern/icon/Icon_speakerOn.svg" alt="" class="modvid-audio__icon audio-on">
-              </a>
+              <div class="tvid__control-wrapper">
+                <div href="#" class="modvid-audio__toggle replay">
+                  <img src="../resources/images/pattern/icon/Icon_reset.svg" alt="" class="modvid-audio__icon replay" />
+                </div>
+                <div href="#" class="modvid-audio__toggle">
+                  <img src="../resources/images/pattern/icon/Icon_speakerOff.svg" alt="" class="modvid-audio__icon audio-off" />
+                  <img src="../resources/images/pattern/icon/Icon_speakerOn.svg" alt="" class="modvid-audio__icon audio-on" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
-
       <footer id="footer">
         <div class="footer-top">
           <div class="top-txt">All rights reserved © 2024 ESE Agency</div>
