@@ -153,23 +153,4 @@
   border: 0 !important;
 }
 
-//  main_ product item
-@media screen and (max-width: 991px) {
-  .items {
-    grid-template-columns: 1fr 1fr 1fr !important;
-  }
-}
-@media screen and (max-width: 479px) {
-  .items {
-    grid-template-columns: 1fr 1fr !important;
-  }
-  // .teamvid__section {
-  //   border-radius: 0;
-  //   height: 120vw;
-  //   margin-left: -40px;
-  //   margin-right: -40px;
-  // }
-}
-
-//video toggle
 

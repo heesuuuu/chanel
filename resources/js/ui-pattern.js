@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// product motion
+// product | category motion
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".item-box, .item-btn");
-
+  const ctgMenuBoxes = document.querySelectorAll(".ctg-menu__box");
   const handleScroll = () => {
     items.forEach((item, index) => {
       const rect = item.getBoundingClientRect();
@@ -41,6 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         item.style.removeProperty("--delay");
       }
     });
+    ctgMenuBoxes.forEach((box,index) => {
+      const rect = box.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      
+      if (isVisible) {
+        const delay = `${index * 0.2}s`; // 각 박스 딜레이
+        box.style.setProperty("--delay", delay);
+        box.classList.add("motion-visible");
+      } else {
+        box.classList.remove("motion-visible");
+        box.style.removeProperty("--delay");
+      }
+    });
   };
 
   window.addEventListener("scroll", handleScroll);
@@ -48,6 +62,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // 초기에 실행
   handleScroll();
 });
+
+// category motion
+// document.addEventListener("DOMContentLoaded", () => {
+//   const items = document.querySelectorAll(".ctg-menu__box");
+
+//   const handleScroll = () => {
+//     items.forEach((item, index) => {
+//       const rect = item.getBoundingClientRect();
+//       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+//       if (isVisible) {
+//         const delay = `${index * 0.2}s`; // 각 요소에 0.2초씩 딜레이 추가
+//         item.style.setProperty("--delay", delay);
+//         item.classList.add("motion-visible");
+//       } else {
+//         item.classList.remove("motion-visible");
+//         item.style.removeProperty("--delay");
+//       }
+//     });
+//   };
+
+//   window.addEventListener("scroll", handleScroll);
+
+//   // 초기에 실행
+//   handleScroll();
+// });
 
 // .all-menu 를 클릭했을 때
 // #nav-all 에게 .active 클래스를 추가한다.
