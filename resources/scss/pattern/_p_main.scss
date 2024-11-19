@@ -87,8 +87,8 @@
     font-size: 1.55rem;
     font-weight: 300;
     margin-right: 4rem;
-    @include mobileMore{
-        font-size: 1.6rem;
+    @include mobileMore {
+      font-size: 1.6rem;
     }
   }
   .txt-m {
@@ -99,11 +99,11 @@
     font-size: 4vw;
     font-weight: 300;
     line-height: 1.55;
-    @include tablet{
+    @include tablet {
       font-size: 4.075rem;
     }
-    @include mobile{
-      font-size: 3.0rem;
+    @include mobile {
+      font-size: 3rem;
     }
   }
 }
@@ -217,7 +217,6 @@
   align-items: stretch;
   display: flex;
   .inner {
-    @include mobile;
     margin: 86px 0;
     .prd-container {
       z-index: 20;
@@ -232,6 +231,12 @@
         grid-auto-columns: 1fr;
         display: grid;
         justify-items: center; //이거 지우면 사진 나오고 생성하면 사진 사라짐
+        @include tablet {
+          grid-template-columns: 1fr 1fr 1fr !important;
+        }
+        @include mobile {
+          grid-template-columns: 1fr 1fr !important;
+        }
 
         .item-box {
           width: 100%;
@@ -247,7 +252,7 @@
             opacity: 1; // 보이게
             transform: translateY(0); // 원래 위치로 이동
           }
-          
+
           &.motion-visible[data-delay] {
             transition-delay: var(--delay, 0s); // 딜레이 값 설정
           }
@@ -463,9 +468,16 @@
 // section5
 .category-container {
   margin-top: 150px;
-  width: 100%;
+  // width: 100%;
   // height: 200vh;
-  display: block;
+  // display: block;
+  grid-row-gap: 60px;
+  flex-direction: column;
+  flex: none;
+  justify-content: flex-start;
+  align-items: stretch;
+  display: flex;
+  position: relative;
   .ctg-tit {
     margin: 0 0 20px 0;
     width: 264px;
@@ -474,45 +486,77 @@
     line-height: 3.125rem;
   }
   .ctg-menu {
-    margin: 0 auto;
-    display: flex;
+    // margin: 0 auto;
+    display: grid;
     flex-wrap: wrap;
-    justify-content: space-between;
-    grid-column-gap: 17px;
-    grid-row-gap: 17px;
-
+    // justify-content: space-between;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-items: center;
+    @include tablet {
+      grid-template-columns: 1fr 1fr 1fr !important;
+    }
+    @include mobile {
+      grid-template-columns: 1fr 1fr !important;
+    }
     .ctg-menu__box {
-      width: 166px;
+      width: 100%;
       height: 111px;
       overflow: hidden;
       position: relative;
+      border-radius: 4px;
 
       transform: translateY(0%) scale(1);
       transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
       transition-duration: 1s;
-      opacity: 1;
-
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 4px;
-        object-fit: cover;
-        object-position: 50% 20%;
-        color: white;
+      opacity: 0;
+      transform: translateY(90px); // 아래에서 시작
+      transition: opacity 0.5s ease, transform 0.8s ease; // 모션 효과
+      will-change: opacity, transform; // 성능 최적화
+      transition-delay: var(--delay, 0s);
+      &.motion-visible {
+        opacity: 1; // 보이게
+        transform: translateY(0); // 원래 위치로 이동
       }
 
-      .ctg-menu__bg {
-        width: 100%;
-        height: 100%;
-        // background-color: #000;
-        // opacity: 50%;
-        background-color: $background-translate-90;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        overflow: hidden;
+      &.motion-visible[data-delay] {
+        transition-delay: var(--delay, 0s); // 딜레이 값 설정
       }
+      a {
+        display: block;
+        overflow: hidden; // 둥근 모서리를 위한 자르기
+        border-radius: 4px; // a 태그 자체도 동일한 border-radius
+        &:hover img {
+          transform: scale(1.1);
+          border-radius: 8px; // hover 상태에서 변경할 둥근 값
+          transition: opacity 0.3s, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        img {
+          width: 100%;
+          height: auto;
+          object-fit:fill;
+          object-position: 50% 20%;
+          color: white;
+          overflow: hidden;
+        }
+        .ctg-menu__bg {
+          width: 100%;
+          height: 100%;
+          // background-color: #000;
+          // opacity: 50%;
+          background-color: $background-translate-90;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          overflow: hidden;
+        }
+      }
+
+      
       p {
         width: 100%;
         height: 100%;
@@ -527,11 +571,7 @@
         font-weight: $font-normal;
         font-size: $font-size-base;
       }
-      :hover img {
-        transform: scale(1.1);
-        border-radius: 4px;
-        transition: opacity 0.3s, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-      }
+      
     }
   }
 }
