@@ -285,3 +285,4 @@ function magneticMove(e, wrapper, factor) {
     ease: Power2.easeOut,
   });
 }
+

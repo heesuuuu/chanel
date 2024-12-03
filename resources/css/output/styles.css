@@ -780,8 +780,7 @@ legend {
   grid-row-gap: 60px;
   flex-direction: column;
   flex: none;
-  justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
   display: flex;
 }
 .product .inner {
@@ -889,8 +888,15 @@ legend {
 
 .cocovid-container {
   position: relative;
+  height: 67.3rem;
 }
-.cocovid-container .vid-playcircle {
+@media (min-width: 600px) {
+  .cocovid-container {
+    margin: 0 30px;
+  }
+}
+
+.cocovid .vid-playcircle {
   z-index: 3;
   width: 80px;
   height: 80px;
@@ -908,24 +914,27 @@ legend {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.cocovid-container .vid-playcircle:hover {
+.cocovid .vid-playcircle:hover {
   width: 13rem;
   height: 13rem;
   background: #fff;
 }
-.cocovid-container .vid-playcircle .vid-playbtn {
+.cocovid .vid-playcircle .vid-playbtn {
+  position: absolute;
   width: 16px;
   height: 18px;
-}
-
-.cocovid {
-  position: relative;
 }
 .cocovid .cocovid-boxvid {
   width: 100%;
   height: 700px;
   -o-object-fit: cover;
      object-fit: cover;
+  position: absolute;
+}
+@media (min-width: 600px) {
+  .cocovid .cocovid-boxvid {
+    border-radius: 20px;
+  }
 }
 
 .cocovid__control-wrapper {
@@ -1008,52 +1017,62 @@ legend {
   position: absolute;
 }
 
-.branding-slide {
-  width: 100%;
-  height: 100%;
-  padding: 100px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.slide-container {
+  position: relative;
+  margin-top: 270px;
 }
-.branding-slide .slide__box {
-  width: 100%;
-  height: 852px;
+.slide-container .slide {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
+  height: 700px;
 }
-
-.swiper {
+@media (min-width: 1024px) {
+  .slide-container .slide {
+    height: 750px;
+  }
+}
+.slide-container .slide .swiper {
   width: 100%;
   height: 100%;
 }
-
-.swiper-slide {
+.slide-container .slide .swiper .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, rgba(103, 103, 103, 0.2) 61.83%, rgba(103, 103, 103, 0.5) 78.86%, #000 95.89%);
-  background-blend-mode: hard-light, normal;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
 }
-
-.swiper-slide img {
+.slide-container .slide .swiper .swiper-slide .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background: linear-gradient(180deg, rgba(103, 103, 103, 0.2) 61.83%, rgba(103, 103, 103, 0.5) 78.86%, #000 95.89%), url(<path-to-image>) lightgray 50%/cover no-repeat;
-  background-blend-mode: hard-light, normal;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.slide-container .slide .swiper .swiper-pagination {
+  width: 100%;
+  margin-bottom: 150px;
+}
+@media (min-width: 1024px) {
+  .slide-container .slide .swiper .swiper-pagination {
+    margin-bottom: 200px;
+  }
+}
+.slide-container .slide .swiper .swiper-pagination .swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.2);
+}
+.slide-container .slide .swiper .swiper-pagination .swiper-pagination-bullet {
+  width: 103px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: white;
+  border-radius: 0;
 }
 
 .category-container {
@@ -1185,6 +1204,12 @@ legend {
   margin: 0 0 0 17px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .mod__layout {
+    margin: 0 30px;
+  }
 }
 
 .mod-section {
@@ -1380,6 +1405,7 @@ legend {
 
 .tvid__nav__item {
   opacity: 1;
+  width: 255px;
   cursor: pointer;
   padding: 15px 30px 15px 24px;
   border-radius: 16px;
@@ -1389,6 +1415,14 @@ legend {
   justify-content: center;
   align-items: center;
   transition: all 0.2s;
+}
+.tvid__nav__item:hover {
+  background-color: rgba(99, 99, 99, 0.25);
+}
+.tvid__nav__item:hover .tvid__nav__img {
+  outline: 1px solid white;
+  outline-offset: 6px;
+  transition: all 0.1s;
 }
 .tvid__nav__item .tvid__nav__img-container {
   justify-content: center;
@@ -1404,7 +1438,7 @@ legend {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  margin-right: 10px;
+  margin-right: 15px;
   -o-object-fit: cover;
      object-fit: cover;
 }
