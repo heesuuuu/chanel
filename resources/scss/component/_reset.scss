@@ -36,6 +36,11 @@ main {
   background-color: var(--font-color-black);
 }
 
+// body {
+//   min-width: 390px;
+
+// }
+
 fieldset,
 img {
   border: 0 none;
@@ -142,7 +147,6 @@ body {
   color: $font-color-base;
   font-weight: $font-weight-base;
   // scroll-behavior: smooth;
-
 }
 
 a {

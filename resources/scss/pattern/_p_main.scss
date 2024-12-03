@@ -213,8 +213,7 @@
   grid-row-gap: 60px;
   flex-direction: column;
   flex: none;
-  justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
   display: flex;
   .inner {
     margin: 86px 0;
@@ -318,6 +317,14 @@
 
 .cocovid-container {
   position: relative;
+  height: 67.3rem;
+  @include mobileMore {
+    margin: 0 30px;
+  }
+}
+
+.cocovid {
+  // position: relative;
   .vid-playcircle {
     z-index: 3;
     width: 80px;
@@ -332,18 +339,19 @@
     }
 
     .vid-playbtn {
+      position: absolute;
       width: 16px;
       height: 18px;
     }
   }
-}
-
-.cocovid {
-  position: relative;
   .cocovid-boxvid {
     width: 100%;
     height: 700px;
     object-fit: cover;
+    position: absolute;
+    @include mobileMore {
+      border-radius: 20px;
+    }
   }
 }
 
@@ -358,6 +366,7 @@
   display: flex;
   position: absolute;
   inset: 30px 30px auto auto;
+
   &.sound-on {
     .audio-off {
       display: block;
@@ -419,51 +428,76 @@
   }
 }
 
-// section4
-.branding-slide {
-  width: 100%;
-  height: 100%;
-  padding: 100px 0;
-  @include flexCenter;
 
-  .slide__box {
-    width: 100%;
-    height: 852px;
+// section4
+.slide-container {
+  position: relative;
+  margin-top: 270px;
+  
+  .slide {
     background: #eee;
-    @include ff-he;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
     padding: 0;
+    height: 700px;
+    @include tabletMore{
+      height: 750px;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit:contain;
+        }
+      }
+      .swiper-pagination{
+        width: 100%;
+        margin-bottom: 150px;
+        @include tabletMore{
+          margin-bottom: 200px;
+        }
+        .swiper-pagination-bullet-active {
+          background: rgba(255, 255, 255, 0.2);
+        }
+        .swiper-pagination-bullet {
+          width: 103px;
+          height: 2px;
+          border-radius: 10px;
+          background-color: white;
+          border-radius: 0;
+        }
+      }
+      
+    }
   }
 }
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(180deg, rgba(103, 103, 103, 0.2) 61.83%, rgba(103, 103, 103, 0.5) 78.86%, #000 95.89%);
-  background-blend-mode: hard-light, normal;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: linear-gradient(180deg, rgba(103, 103, 103, 0.2) 61.83%, rgba(103, 103, 103, 0.5) 78.86%, #000 95.89%), url(<path-to-image>) lightgray 50% / cover no-repeat;
-  background-blend-mode: hard-light, normal;
-}
+// .slide-container ::after{
+//   content: "";
+//   position: absolute;
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 2;
+//   background: linear-gradient(rgba(103, 103, 103, 0.2),rgba(103, 103, 103, 0.5),rgba(0, 0, 0, 1));
+//   background-blend-mode: hard-light, normal;
+  
+// }
 
 // section5
 .category-container {
@@ -537,7 +571,7 @@
         img {
           width: 100%;
           height: auto;
-          object-fit:fill;
+          object-fit: fill;
           object-position: 50% 20%;
           color: white;
           overflow: hidden;
@@ -556,7 +590,6 @@
         }
       }
 
-      
       p {
         width: 100%;
         height: 100%;
@@ -571,7 +604,6 @@
         font-weight: $font-normal;
         font-size: $font-size-base;
       }
-      
     }
   }
 }
@@ -604,7 +636,11 @@
 }
 //
 // tvid__section test
-
+.mod__layout {
+  @include tablet {
+    margin: 0 30px;
+  }
+}
 .mod-section {
   position: relative;
   background-color: #f4f4f4;
@@ -615,6 +651,7 @@
   max-height: none;
   display: block;
   overflow: hidden;
+
   .tvid__cursor-container {
     z-index: 3;
     flex-direction: column;
@@ -789,6 +826,7 @@
 
 .tvid__nav__item {
   opacity: 1;
+  width: 255px;
   // backdrop-filter: brightness(150%) blur(30px);
   // background-color: rgba(99, 99, 99, 0.25);
   cursor: pointer;
@@ -798,6 +836,14 @@
   inset: auto 0% 0;
   @include flexCenter;
   transition: all 0.2s;
+  &:hover {
+    background-color: rgba(99, 99, 99, 0.25);
+    .tvid__nav__img {
+      outline: 1px solid white; // 흰색 외곽선
+      outline-offset: 6px; // 이미지에서 6px 떨어진 위치
+      transition: all 0.1s;
+    }
+  }
   .tvid__nav__img-container {
     justify-content: center;
     align-items: center;
@@ -812,8 +858,9 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    margin-right: 10px;
+    margin-right: 15px;
     object-fit: cover;
+    // padding: 6px;
   }
   .tvid__nav__text-container {
     color: #fff;
