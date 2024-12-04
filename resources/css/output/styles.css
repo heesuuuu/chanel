@@ -892,7 +892,7 @@ legend {
 }
 @media (min-width: 600px) {
   .cocovid-container {
-    margin: 0 30px;
+    margin: 0 70px;
   }
 }
 
@@ -1028,11 +1028,11 @@ legend {
   color: #000;
   margin: 0;
   padding: 0;
-  height: 700px;
+  height: 650px;
 }
 @media (min-width: 1024px) {
   .slide-container .slide {
-    height: 750px;
+    height: 850px;
   }
 }
 .slide-container .slide .swiper {
@@ -1050,29 +1050,45 @@ legend {
 }
 .slide-container .slide .swiper .swiper-slide .swiper-slide img {
   display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 50%;
+  height: 50%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 .slide-container .slide .swiper .swiper-pagination {
   width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+  pointer-events: auto;
+  display: flex; /* 플렉스 레이아웃 활성화 */
+  justify-content: center; /* 가운데 정렬 */
+  flex-wrap: nowrap; /* 줄 바꿈 방지 */
 }
-@media (min-width: 1024px) {
+@media (max-width: 599px) {
   .slide-container .slide .swiper .swiper-pagination {
-    margin-bottom: 200px;
+    margin-bottom: 100px;
   }
 }
 .slide-container .slide .swiper .swiper-pagination .swiper-pagination-bullet-active {
   background: rgba(255, 255, 255, 0.2);
 }
 .slide-container .slide .swiper .swiper-pagination .swiper-pagination-bullet {
-  width: 103px;
+  width: 190px;
   height: 2px;
   border-radius: 10px;
   background-color: white;
   border-radius: 0;
+}
+
+.swiper::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(201, 196, 196, 0.03), #000 98.89%);
 }
 
 .category-container {
