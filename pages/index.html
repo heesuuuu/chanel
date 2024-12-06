@@ -1,92 +1,43 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHANEL</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../resources/css/pattern_css.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../resources/javascript/javascript.js"></script>
-    <script src="https://kit.fontawesome.com/94e35ee2b7.js" crossorigin="anonymous"></script>
-    <script defer src="../resources/js/ui-pattern.js"></script>
-    <script defer src="../resources/js/ui-swiper.js"></script>
-  </head>
-  <body>
-    <div id="skip-nav">
-      <a href="#gnb">메뉴 바로가기</a>
-      <a href="#container">본문 바로가기</a>
-    </div>
-    <div id="wrap">
-      <header id="header" class="">
-        <div class="inner">
-          <h1 id="logo">
-            <a href="#">Chanel</a>
-          </h1>
-          <nav id="gnb" class="gnb">
-            <ul class="gnb__depth1">
-              <li>
-                <a href="#">
-                  <span>menu1</span>
-                </a>
-                <ul class="gnb__depth2">
-                  <li><a href="#">menu1-1</a></li>
-                  <li><a href="#">menu1-2</a></li>
-                  <li><a href="#">menu1-3</a></li>
-                  <li><a href="#">menu1-4</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#"><span>menu2</span></a>
-                <ul class="gnb__depth2">
-                  <li><a href="#">menu2-1</a></li>
-                  <li><a href="#">menu2-2</a></li>
-                  <li><a href="#">menu2-3</a></li>
-                  <li><a href="#">menu2-4</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#"><span>menu3</span></a>
-                <ul class="gnb__depth2">
-                  <li><a href="#">menu3-1</a></li>
-                  <li><a href="#">menu3-2</a></li>
-                  <li><a href="#">menu3-3</a></li>
-                  <li><a href="#">menu3-4</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#"><span>menu4</span></a>
-                <ul class="gnb__depth2">
-                  <li><a href="#">menu4-1</a></li>
-                  <li><a href="#">menu4-2</a></li>
-                  <li><a href="#">menu4-3</a></li>
-                  <li><a href="#">menu4-4</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-          <div class="util">
-            <!-- active 추가시 활성화 -->
-            <div class="lang">
-              <button class="lang__btn">kor</button>
-              <ul class="lang__lst">
-                <li>kor</li>
-                <li>eng</li>
-              </ul>
-            </div>
-            <button class="search">
-              <span class="blind">검색</span>
-            </button>
-            <button class="all-menu">
-              <span class="blind">전체메뉴</span>
-            </button>
-          </div>
-        </div>
-        <!-- active 추가시 활성화 -->
-        <nav id="nav-all" class="">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHANEL</title>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../resources/css/pattern_css.css" />
+  <script src="https://kit.fontawesome.com/94e35ee2b7.js" crossorigin="anonymous"></script>
+
+  <!-- GSAP 라이브러리 로드 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- 프로젝트 스크립트 -->
+
+  <script defer src="../resources/javascript/javascript.js"></script>
+  <script defer src="../resources/js/ui-pattern.js"></script>
+  <script defer src="../resources/js/ui-swiper.js"></script>
+</head>
+
+<body id="my-scrollbar">
+  <div id="skip-nav">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#container">본문 바로가기</a>
+  </div>
+  <div id="wrap">
+    <header id="header" class="">
+      <div class="inner">
+        <h1 id="logo">
+          <a href="#">Chanel</a>
+        </h1>
+        <nav id="gnb" class="gnb">
           <ul class="gnb__depth1">
             <li>
               <a href="#">
@@ -127,213 +78,293 @@
               </ul>
             </li>
           </ul>
-
-          <button class="close">
-            <span class="">전체메뉴 닫기</span>
-          </button>
         </nav>
-      </header>
-      <main>
-        <div class="main">
-          <div class="main-img">
-            <img src="../resources/images/pattern/main/keyimg_jennie.webp" alt="jennie keyimage" />
+        <div class="util">
+          <!-- active 추가시 활성화 -->
+          <div class="lang">
+            <button class="lang__btn">kor</button>
+            <ul class="lang__lst">
+              <li>kor</li>
+              <li>eng</li>
+            </ul>
           </div>
-          <div class="mTit">COCO CRUSH COCO CRUSH &nbsp; COCO CRUSH COCO CRUSH</div>
+          <button class="search">
+            <span class="blind">검색</span>
+          </button>
+          <button class="all-menu">
+            <span class="blind">전체메뉴</span>
+          </button>
         </div>
+      </div>
+      <!-- active 추가시 활성화 -->
+      <nav id="nav-all" class="">
+        <ul class="gnb__depth1">
+          <li>
+            <a href="#">
+              <span>menu1</span>
+            </a>
+            <ul class="gnb__depth2">
+              <li><a href="#">menu1-1</a></li>
+              <li><a href="#">menu1-2</a></li>
+              <li><a href="#">menu1-3</a></li>
+              <li><a href="#">menu1-4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><span>menu2</span></a>
+            <ul class="gnb__depth2">
+              <li><a href="#">menu2-1</a></li>
+              <li><a href="#">menu2-2</a></li>
+              <li><a href="#">menu2-3</a></li>
+              <li><a href="#">menu2-4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><span>menu3</span></a>
+            <ul class="gnb__depth2">
+              <li><a href="#">menu3-1</a></li>
+              <li><a href="#">menu3-2</a></li>
+              <li><a href="#">menu3-3</a></li>
+              <li><a href="#">menu3-4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><span>menu4</span></a>
+            <ul class="gnb__depth2">
+              <li><a href="#">menu4-1</a></li>
+              <li><a href="#">menu4-2</a></li>
+              <li><a href="#">menu4-3</a></li>
+              <li><a href="#">menu4-4</a></li>
+            </ul>
+          </li>
+        </ul>
 
-        <!-- section1 -->
-        <section class="desc-title">
-          <div class="left-txt">
-            <h2 class="txt-s">Das ist ESE</h2>
-            <p class="txt-m">For Gabrielle Chanel, every encoünter wäs a game where lück and destiny intersect. With clean änd even incisions thät crisscross the</p>
-            <div class="txt-l">cürved surface of eäch piece, the COCO CRUSH collection is a story of encoünters.</div>
-          </div>
-        </section>
-        <!-- PRODUCT -->
-        <section class="product">
-          <div class="inner">
-            <div class="prd-container">
-              <div class="items">
-                <div class="item-box">
-                  <a class="item-list__link" href="#">
-                    <img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" />
-                  </a>
-                </div>
-                <div class="item-box">
-                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
-                </div>
-                <div class="item-box">
-                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_4.png" alt="" /></a>
-                </div>
-                <div class="item-box">
-                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
-                </div>
-                <div class="item-box">
-                  <a class="item-list__link" href="#"><img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
-                </div>
+        <button class="close">
+          <span class="">전체메뉴 닫기</span>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div class="main">
+        <div class="main-img">
+          <img src="../resources/images/pattern/main/keyimg_jennie.webp" alt="jennie keyimage" />
+        </div>
+        <div class="mercury">
+          <div class="m-tit">COCO CRUSH aa</div>
+          <div class="m-tit">COCO CRUSH dd</div>
+        </div>
+      </div>
+
+      <!-- section1 -->
+      <section class="desc-title">
+        <div class="left-txt">
+          <h2 class="txt-s">Das ist ESE</h2>
+          <p class="txt-m">For Gabrielle Chanel, every encoünter wäs a game where lück and destiny intersect. With clean
+            änd even incisions thät crisscross the</p>
+          <div class="txt-l">cürved surface of eäch piece, the COCO CRUSH collection is a story of encoünters.</div>
+        </div>
+      </section>
+      <!-- PRODUCT -->
+      <section class="product">
+        <div class="inner">
+          <div class="prd-container">
+            <div class="items">
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#">
+                  <img class="item_img" src="../resources/images/pattern/jewelry/ring_1.png" alt="" />
+                </a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_4.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
+              </div>
+              <div class="item-box page-loaded">
+                <a class="item-list__link" href="#"><img class="item_img"
+                    src="../resources/images/pattern/jewelry/ring_1.png" alt="" /></a>
               </div>
             </div>
-            <div class="item-btn-container">
-              <div class="item-btn">
-                <p class="sec2-btn__tit">Alle anzeigen</p>
-                <div class="sec2-btn__icon"><img src="../resources/images/pattern/icon/Vector.svg" alt="더보기 버튼" /></div>
-              </div>
+          </div>
+          <div class="item-btn-container">
+            <div class="item-btn">
+              <p class="sec2-btn__tit">Alle anzeigen</p>
+              <div class="sec2-btn__icon"><img src="../resources/images/pattern/icon/Vector.svg" alt="더보기 버튼" /></div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div class="cocovid-container">
+      <div class="cocovid-container">
+        <div class="cocovid sound-on">
           <div class="vid-playcircle" onclick="playVideo()">
             <img src="../resources/images/pattern/icon/icon_play.svg" alt="재생버튼" class="vid-playbtn" />
           </div>
-          <div class="cocovid sound-on">
-            <video src="../resources/images/pattern/video/edition_jennie.mp4" class="cocovid-boxvid"></video>
-            <div class="tvid__control-wrapper">
-              <a class="tvid__audio-toggle replay w-inline-block" href="#">
-                <img class="vid-audio-icon replay" src="../resources/images/pattern/icon/Icon_reset.svg" alt="" />
+          <video src="../resources/images/pattern/video/edition_jennie.mp4" class="cocovid-boxvid"></video>
+          <div class="cocovid__control-wrapper">
+            <div class="cocovid__audio-toggle replay w-inline-blockㄴ">
+              <img class="cocovid-audio-icon replay" src="../resources/images/pattern/icon/Icon_reset.svg" alt="" />
+            </div>
+            <div class="cocovid__audio-toggle w-inline-block">
+              <img class="cocovid-audio-icon audio-off" src="../resources/images/pattern/icon/Icon_speakerOff.svg"
+                alt="소리끄기 버튼" />
+              <img class="cocovid-audio-icon audio-on" src="../resources/images/pattern/icon/Icon_speakerOn.svg"
+                alt="소리켜기 버튼" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- slide section -->
+      <section class="slide-container">
+        <div class="slide">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../resources/images/pattern/main/employer_img1.webp">
+
+                </img>
+                <div class="add-txt">COCO CRUSH CUPLE</div>
+              </div>
+              <div class="swiper-slide">
+                <image src="../resources/images/pattern/main/employer_img2.png" class="slide__img"></image>
+              </div>
+              <div class="swiper-slide">
+                <image src="../resources/images/pattern/main/employer_img3.png" class="slide__img"></image>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- category section -->
+      <section class="category-container">
+        <div class="inner">
+          <p class="ctg-tit">Gemeinsam erreichen wir Grosses</p>
+          <div class="ctg-menu">
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img1.png" alt="HAUTE COUTURE" />
+                <div class="ctg-menu__bg"></div>
+                <p>HAUTE COUTURE</p>
               </a>
-              <a class="tvid__audio-toggle w-inline-block" href="#">
-                <img class="vid-audio-icon audio-off" src="../resources/images/pattern/icon/Icon_speakerOff.svg" alt="소리끄기 버튼" />
-                <img class="vid-audio-icon audio-on" src="../resources/images/pattern/icon/Icon_speakerOn.svg" alt="소리켜기 버튼" />
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img2.webp" alt="fashion" />
+                <div class="ctg-menu__bg"></div>
+                <p>fashion</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img3.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>high jewelry</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img4.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>fine jewelry</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img5.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>watches</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#"><img src="../resources/images/pattern/main/category_img6.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>eyewear</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img7.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>fragrance</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img8.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>makeup</p>
+              </a>
+            </div>
+            <div class="ctg-menu__box">
+              <a href="#">
+                <img src="../resources/images/pattern/main/category_img9.webp" alt="" />
+                <div class="ctg-menu__bg"></div>
+                <p>skincare</p>
               </a>
             </div>
           </div>
         </div>
-        <div class="branding-slide">
-          <div class="slide__box">
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="../resources/recource/img/제니2.webp" alt="" />
-                </div>
-                <div class="swiper-slide"><img src="../resources/images/pattern/main/category_img1.webp" alt="" /></div>
-                <div class="swiper-slide" background-image="../resources/recource/img/커플사진 고화질.png">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
-            </div>
+      </section>
+
+      <!-- 악세사리 디테일 section -->
+      <section class="acc-detail">
+        <div class="acc-detail__topimg">
+          <img src="../resources/images/pattern/main/sec6_necklases.png" alt="악세사리 목걸이" />
+          <div class="acc-detail__bottom">
+            <p class="acc-detail__txt">Explore COCO CRUSH bracelets, rings and necklaces, available in 18K BEIGE GOLD,
+              yellow gold or white gold*, with or without diamonds.</p>
+            <img src="../resources/images/pattern/main/sec6_necklaces_couple.webp" alt="악세사리 커플인물사진" />
           </div>
         </div>
-        <!-- category section -->
-        <section class="category-container">
-          <div class="inner">
-            <p class="ctg-tit">Gemeinsam erreichen wir Grosses</p>
-            <div class="ctg-menu">
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img1.webp" alt="HAUTE COUTURE" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>HAUTE COUTURE</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img2.webp" alt="fashion" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>fashion</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img3.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>high jewelry</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img4.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>fine jewelry</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img5.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>watches</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#"
-                  ><img src="../resources/images/pattern/main/category_img6.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>eyewear</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img7.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>fragrance</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img8.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>makeup</p>
-                </a>
-              </div>
-              <div class="ctg-menu__box">
-                <a href="#">
-                  <img src="../resources/images/pattern/main/category_img9.webp" alt="" />
-                  <div class="ctg-menu__bg"></div>
-                  <p>skincare</p>
-                </a>
+      </section>
+
+      <!-- mod-video section -->
+      <section class="mod__layout">
+        <div>
+          <h2 bhind>model video</h2>
+          <div class="mod-section">
+            <div class="tvid__cursor-container">
+              <div class="mod-playcircle" onclick="playVideo()">
+                <img src="../resources/images/pattern/icon/icon_play.svg" alt="모델 재생버튼" class="mod-playbtn" />
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- 악세사리 디테일 section -->
-        <section class="acc-detail">
-          <div class="acc-detail__topimg">
-            <img src="../resources/images/pattern/main/sec6_necklases.png" alt="악세사리 목걸이" />
-            <div class="acc-detail__bottom">
-              <p class="acc-detail__txt">Explore COCO CRUSH bracelets, rings and necklaces, available in 18K BEIGE GOLD, yellow gold or white gold*, with or without diamonds.</p>
-              <img src="../resources/images/pattern/main/sec6_necklaces_couple.webp" alt="악세사리 커플인물사진" />
-            </div>
-          </div>
-        </section>
-
-        <!-- model video section -->
-
-        <!-- <section class="sec-g sec-ad">
-          <div class="inner">
-            <!-- <h2 class="blind">샤넬 광고</h2> -->
-        <!-- <p class="sec-g__desc">섹션 설명글</p>
-            <div class="sec-g__cont">
-              <iframe src="https://www.youtube.com/embed/7B7EROlV1M0?si=UdqHzuLhNbkOKz0j&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <a href="#" class="sec-g__more">더보기</a>
-          </div>
-        </section> -->
-
-        <!-- mod-video section -->
-        <section class="mod__layout">
-          <div class="inner">
-            <h2>model video</h2>
-            <div class="mod-section">
-              <div class="tvid__cursor-container"></div>
-              <div class="tvid__video-container">
-                <div class="tvid__video__wrapper">
-                  <div class="tvid__video__item">
-                    <div class="tvid__video__embed">
-                      <video src="../resources/images/pattern/video/cococrush_jennie.mp4" class="mod-vid"></video>
-                    </div>
-                    <div class="iframe-overlay"><div class="tvid__gradient"></div></div>
-                    <div class="tvid__heading-container">
-                      <div class="tvid__heading" ">
-                      <h2 class="tvid__main-heading">주요내용</h2>
-                      <div class="tvid__text-block">세부내용</div>
+            <div class="tvid__video-container">
+              <div class="tvid__video__wrapper">
+                <div class="tvid__video__item">
+                  <div class="tvid__video__embed">
+                    <video src="../resources/images/pattern/video/cococrush_jennie.mp4" class="mod-vid"></video>
+                  </div>
+                  <div class="iframe-overlay">
+                    <div class="tvid__gradient"></div>
+                  </div>
+                  <div class="tvid__heading-container">
+                    <div class="tvid__heading">
+                      <h2 class="tvid__main-heading">Chanel's fine jewelry collection, featuring Blackpink's Jennie,
+                        combines timeless elegance with modern sophistication.</h2>
+                      <div class="tvid__text-block">
+                        jennie
+                        <p class="mod-desc">jewelry</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -379,32 +410,42 @@
                 </div>
               </div>
             </div>
-
-            <div class="tvid__control-wrapper"></div>
+            <div class="tvid__control-wrapper">
+              <div href="#" class="modvid-audio__toggle replay">
+                <img src="../resources/images/pattern/icon/Icon_reset.svg" alt="" class="modvid-audio__icon replay" />
+              </div>
+              <div href="#" class="modvid-audio__toggle">
+                <img src="../resources/images/pattern/icon/Icon_speakerOff.svg" alt=""
+                  class="modvid-audio__icon audio-off" />
+                <img src="../resources/images/pattern/icon/Icon_speakerOn.svg" alt=""
+                  class="modvid-audio__icon audio-on" />
+              </div>
+            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="top-txt">All rights reserved © 2024 ESE Agency</div>
+        <ul class="sns">
+          <li>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-buttom">
+        <div class="buttom-tit">Get in Contact</div>
+        <div class="buttom-tit">Get in Contact</div>
+      </div>
+    </footer>
+  </div>
+</body>
 
-      <footer id="footer">
-        <div class="footer-top">
-          <div class="top-txt">All rights reserved © 2024 ESE Agency</div>
-          <ul class="sns">
-            <li>
-              <a href=""><i class="fa-brands fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-youtube"></i></a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-buttom">
-          <div class="buttom-txt">Get in Contact &nbsp; Get in Contact</div>
-        </div>
-      </footer>
-    </div>
-  </body>
 </html>
-<script></script>
