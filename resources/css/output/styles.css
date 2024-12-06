@@ -664,6 +664,25 @@ legend {
   left: 0;
 }
 
+.gsap .box {
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.gsap .pink {
+  background-color: pink;
+}
+.gsap .orange {
+  background-color: orange;
+}
+.gsap .green {
+  background-color: green;
+}
+
 .main {
   overflow: hidden;
   width: 100%;
@@ -889,10 +908,11 @@ legend {
 .cocovid-container {
   position: relative;
   height: 67.3rem;
+  transform: scale(0.8); /* 기본 크기를 80%로 줄임 */
 }
 @media (min-width: 600px) {
   .cocovid-container {
-    margin: 0 70px;
+    margin: 0 30px;
   }
 }
 
@@ -1048,12 +1068,35 @@ legend {
   align-items: center;
   height: 100%;
 }
-.slide-container .slide .swiper .swiper-slide .swiper-slide img {
-  display: block;
-  width: 50%;
-  height: 50%;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
+.slide-container .slide .swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+.slide-container .slide .swiper .swiper-slide .add-txt {
+  width: 100%;
+  height: 100%;
+  font-size: 120px;
+  font-weight: 500;
+  color: white;
+  position: absolute;
+  top: 356px;
+  left: 0;
+  z-index: 3;
+  transform: translate(5%, 55%);
+  text-wrap: nowrap;
+  animation: add-txt 10s linear infinite;
+}
+@keyframes add-txt {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
 }
 .slide-container .slide .swiper .swiper-pagination {
   width: 100%;
@@ -1079,7 +1122,7 @@ legend {
   border-radius: 0;
 }
 
-.swiper::after {
+.swiper-slide::after {
   content: "";
   position: absolute;
   display: block;
@@ -1587,4 +1630,58 @@ legend {
   100% {
     transform: translateX(-100%);
   }
+}
+
+.jennie-ad {
+  position: relative;
+}
+.jennie-ad .main-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+  height: 890px;
+  background-image: url(../../images/pattern/serve/main_jennie.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.jennie-ad .main-txt {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 19px;
+  line-height: 40px;
+  width: 347px;
+  height: auto;
+}
+
+.jewelry {
+  overflow: hidden;
+  margin-top: 12.5rem;
+}
+.jewelry .jewelry__vid {
+  width: auto;
+  height: 852px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.discover {
+  width: 100%;
+  height: auto;
+  display: inline;
+}
+.discover .discover__link {
+  width: 100%;
+  height: auto;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  border-bottom: 1px solid #ffffff;
+  margin: 0 auto;
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
