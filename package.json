@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "gsap": "^3.12.5",
+    "scss": "^0.2.4",
     "swiper": "^11.1.15"
   }
 }
