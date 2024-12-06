@@ -12,7 +12,7 @@
     }
     .main-txt {
         content: "";
-        @include position-center;
+        @include posXY;
         color: white;
         text-align: center;
         font-size: 19px;
