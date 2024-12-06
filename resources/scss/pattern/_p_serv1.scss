@@ -1,0 +1,50 @@
+.jennie-ad {
+    position: relative;
+    .main-img {
+        object-fit: cover;
+        overflow: hidden;
+        width: 100%;
+        height: 890px;
+        background-image: url(../../images/pattern/serve/main_jennie.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        // max-width: 768px;
+    }
+    .main-txt {
+        content: "";
+        @include position-center;
+        color: white;
+        text-align: center;
+        font-size: 19px;
+        line-height: 40px;
+        width: 347px;
+        height: auto;
+    }
+}
+
+.jewelry {
+    overflow: hidden;
+    margin-top: 12.5rem;
+    .jewelry__vid {
+        width: auto;
+        height: 852px;
+        object-fit: cover;
+    }
+}
+.discover {
+    width: 100%;
+    height: auto;
+    display: inline;
+
+    // margin-bottom: 130px;
+    .discover__link {
+        width: 100%;
+        height: auto;
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        border-bottom: 1px solid #ffffff;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
