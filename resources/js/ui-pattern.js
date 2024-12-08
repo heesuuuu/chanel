@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
         item.style.removeProperty("--delay");
       }
     });
-    ctgMenuBoxes.forEach((box,index) => {
+    ctgMenuBoxes.forEach((box, index) => {
       const rect = box.getBoundingClientRect();
       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-      
+
       if (isVisible) {
         const delay = `${index * 0.2}s`; // 각 박스 딜레이
         box.style.setProperty("--delay", delay);
@@ -63,31 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   handleScroll();
 });
 
-// category motion
-// document.addEventListener("DOMContentLoaded", () => {
-//   const items = document.querySelectorAll(".ctg-menu__box");
 
-//   const handleScroll = () => {
-//     items.forEach((item, index) => {
-//       const rect = item.getBoundingClientRect();
-//       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-//       if (isVisible) {
-//         const delay = `${index * 0.2}s`; // 각 요소에 0.2초씩 딜레이 추가
-//         item.style.setProperty("--delay", delay);
-//         item.classList.add("motion-visible");
-//       } else {
-//         item.classList.remove("motion-visible");
-//         item.style.removeProperty("--delay");
-//       }
-//     });
-//   };
-
-//   window.addEventListener("scroll", handleScroll);
-
-//   // 초기에 실행
-//   handleScroll();
-// });
 
 // .all-menu 를 클릭했을 때
 // #nav-all 에게 .active 클래스를 추가한다.
@@ -117,12 +93,24 @@ $(".lang__lst li").click(function () {
   $(".lang__lst").hide();
 });
 
-// cocovideo play js
+
+/*-----------------------------------------------------------*/
+/*cocovideo play js                                              */
+/*-----------------------------------------------------------*/
 
 document.addEventListener("DOMContentLoaded", function () {
   // vid-playcircle 요소를 선택
   const playButton = document.querySelector(".vid-playcircle");
   const video = document.querySelector(".cocovid-boxvid");
+  const audioOffIcon = document.querySelector(".audio-off"); // 음소거 아이콘
+  const audioOnIcon = document.querySelector(".audio-on"); // 소리 켜짐 아이콘
+  const audioToggle = document.querySelectorAll(".cocovid__audio-toggle"); // 오디오 토글 버튼
+
+
+  video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
+  audioOffIcon.style.display = "block";
+  audioOnIcon.style.display = "none";
+
 
   // 클릭 이벤트 리스너 추가
   playButton.addEventListener("click", function () {
@@ -136,65 +124,92 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // 음소거 상태 전환 (음소거 -> 소리 켜기, 소리 켜기 -> 음소거)
+  audioToggle.forEach(function (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+      if (video.muted) {
+        video.muted = false; // 음소거 해제
+        audioOffIcon.style.display = "none"; // 음소거 아이콘 숨김
+        audioOnIcon.style.display = "block"; // 소리 켜기 아이콘 표시
+      } else {
+        video.muted = true; // 음소거 활성화
+        audioOffIcon.style.display = "block"; // 음소거 아이콘 표시
+        audioOnIcon.style.display = "none"; // 소리 켜기 아이콘 숨김
+      }
+    });
+  });
+
   // 비디오가 끝났을 때 play 버튼 다시 보이기
   video.addEventListener("ended", function () {
     playButton.style.display = "flex";
   });
 });
 
+/*-----------------------------------------------------------*/
+/* MODEL video paly Cursor                                               */
+/*-----------------------------------------------------------*/
+
 document.addEventListener("DOMContentLoaded", function () {
   const playButton = document.querySelector(".mod-playcircle");
   const video = document.querySelector(".mod-vid");
   const controlWrapper = document.querySelector(".tvid__control-wrapper");
-  const audioOffIcon = document.querySelector(".audio-off");
-  const audioOnIcon = document.querySelector(".audio-on");
 
+  // Play 버튼 클릭 시 비디오 재생/일시정지
   playButton.addEventListener("click", function () {
     if (video.paused) {
       video.play();
-      video.muted = false; // 비디오 재생 시 사운드 재생
+      video.muted = false; // 비디오 재생 시 소리를 기본적으로 활성화
       playButton.style.display = "none"; // Play 버튼 숨기기
-      controlWrapper.style.display = "flex"; // 재생 중일 때만 컨트롤 보이기
-      updateAudioIcons();
+      controlWrapper.style.display = "flex"; // 컨트롤 보이기
+      updateAudioIcons(); // 아이콘 업데이트
     } else {
       video.pause();
-      playButton.style.display = "block"; // Play 버튼 다시 보이기
-      controlWrapper.style.display = "none"; // 정지 시 컨트롤 숨기기
+      playButton.style.display = "block"; // Play 버튼 보이기
+      controlWrapper.style.display = "none"; // 컨트롤 숨기기
     }
   });
 
-  // 비디오가 끝났을 때 play 버튼 보이고 컨트롤 숨기기
+  // 비디오가 끝났을 때 Play 버튼 보이고 컨트롤 숨기기
   video.addEventListener("ended", function () {
     playButton.style.display = "flex";
     controlWrapper.style.display = "none";
   });
 
-  // 재생버튼 클릭시 음소거 아이콘 표시 및 음소거 상태 전환
-  audioOffIcon.addEventListener("click", function () {
-    if (!video.paused) {
-      video.muted = false; // 비디오 음소거
-      updateAudioIcons();
-    }
-  });
-  // 음소거 해제 아이콘 클릭 시 음소거 적용 및 아이콘 전환
-  audioOnIcon.addEventListener("click", function () {
-    if (!video.paused) {
-      video.muted = true; // 음소거 적용
-      updateAudioIcons(); // 음소거 아이콘으로 전환
-    }
+
+
+
+  // 비디오 요소 및 replay div 선택
+  const videoElement = document.querySelector('.cocovid-boxvid'); // 비디오 요소
+  const replayDiv = document.querySelector('.cocovid__audio-toggle.replay'); // replay div
+
+
+  // 이벤트 리스너 추가
+  replayDiv.addEventListener('click', () => {
+    // 비디오를 처음부터 다시 재생
+    videoElement.currentTime = 0; // 동영상 재생 시간을 0초로 설정
+    videoElement.play(); // 동영상 재생 시작
+
+    // 페이지 새로고침
+    setTimeout(() => {
+      location.reload(); // 0초 후 페이지 새로고침
+    }, 0);
   });
 
-  // 음소거 해제 아이콘 클릭 시 비디오를 음소거 상태로 전환
-  // 아이콘 업데이트 함수 정의
-  function updateAudioIcons() {
-    if (video.muted) {
-      audioOffIcon.style.display = "none"; // 음소거 아이콘 숨기기
-      audioOnIcon.style.display = "black"; // 음소거 해제 아이콘 표시
-    } else {
-      audioOffIcon.style.display = "block"; // 음소거 아이콘 숨기기
-      audioOnIcon.style.display = "none"; // 음소거 해제 아이콘 표시
-    }
-  }
+  // // cocovid-container와 비디오 요소 선택
+  // const container = document.querySelector('.cocovid-container');
+  // const videoStop = document.querySelector('.cocovid-boxvid');
+
+  // // 이벤트 리스너 추가
+  // container.addEventListener('click', () => {
+  //   if (!videoStop.paused) {
+  //     // 비디오가 재생 중이면 멈춤
+  //     videoStop.pause();
+  //   } else {
+  //     // 비디오가 멈춰 있으면 재생
+  //     videoStop.play();
+  //   }
+  // });
+
 });
 
 /*-----------------------------------------------------------*/
@@ -248,6 +263,8 @@ $(document).on({
     $(".crs, .crs-fast").addClass("visible");
   },
 });
+
+
 
 /*-----------------------------------------------------------*/
 /* GSAP Magnetic Elements                                    */
