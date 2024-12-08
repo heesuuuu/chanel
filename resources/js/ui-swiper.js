@@ -8,10 +8,10 @@ var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
   },
-  // autoplay: {
-  //   delay: 3200,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 3200,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true, // 페이지네이션 클릭 가능
