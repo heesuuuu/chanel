@@ -18,6 +18,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- 프로젝트 스크립트 -->
@@ -28,7 +36,7 @@
 
 </head>
 
-<body id="my-scrollbar">
+<body>
   <div id="skip-nav">
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#container">본문 바로가기</a>
@@ -146,12 +154,12 @@
         </button>
       </nav>
     </header>
-    <div class="gsap">
-      <!--gsap.to/ from/ fromTo 예제-->
-      <div class="box pink" >to</div>
-      <div class="box orange">from</div>
-      <div class="box green">fromTo</div>
-    </div>
+
+
+
+
+
+
     <main>
       <div class="main">
         <div class="main-img">
@@ -164,12 +172,17 @@
       </div>
 
       <!-- section1 -->
-      <section class="desc-title">
-        <div class="left-txt">
-          <h2 class="txt-s">Das ist ESE</h2>
-          <p class="txt-m">For Gabrielle Chanel, every encoünter wäs a game where lück and destiny intersect. With clean
-            änd even incisions thät crisscross the</p>
-          <div class="txt-l">cürved surface of eäch piece, the COCO CRUSH collection is a story of encoünters.</div>
+      <section>
+        <div class="inner">
+          <div class="desc-title">
+            <div class="left-txt">
+              <h2 class="txt-s">Das ist ESE</h2>
+              <p class="txt-m">For Gabrielle Chanel, every encoünter wäs a game where lück and destiny intersect. With
+                clean
+                änd even incisions thät crisscross the</p>
+              <div class="txt-l">cürved surface of eäch piece, the COCO CRUSH collection is a story of encoünters.</div>
+            </div>
+          </div>
         </div>
       </section>
       <!-- PRODUCT -->
@@ -228,40 +241,43 @@
           </div>
           <video src="../resources/images/pattern/video/edition_jennie.mp4" class="cocovid-boxvid"></video>
           <div class="cocovid__control-wrapper">
-            <div class="cocovid__audio-toggle replay w-inline-blockㄴ">
+            <div class="cocovid__audio-toggle replay w-inline-block">
               <img class="cocovid-audio-icon replay" src="../resources/images/pattern/icon/Icon_reset.svg" alt="" />
             </div>
             <div class="cocovid__audio-toggle w-inline-block">
-              <img class="cocovid-audio-icon audio-off" src="../resources/images/pattern/icon/Icon_speakerOff.svg"
+              <img class="cocovid-audio-icon audio-on" src="../resources/images/pattern/icon/Icon_speakerOff.svg"
                 alt="소리끄기 버튼" />
-              <img class="cocovid-audio-icon audio-on" src="../resources/images/pattern/icon/Icon_speakerOn.svg"
+              <img class="cocovid-audio-icon audio-off" src="../resources/images/pattern/icon/Icon_speakerOn.svg"
                 alt="소리켜기 버튼" />
             </div>
           </div>
         </div>
       </div>
       <!-- slide section -->
-      <section class="slide-container">
-        <div class="slide">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="../resources/images/pattern/main/employer_img1.webp">
+      <div>
+        <section class="slide-container">
+          <div class="slide">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="../resources/images/pattern/main/employer_img1.webp">
 
-                </img>
-                <div class="add-txt">COCO CRUSH CUPLE</div>
+                  </img>
+                  <div class="add-txt">COCO CRUSH CUPLE</div>
+                </div>
+                <div class="swiper-slide">
+                  <image src="../resources/images/pattern/main/employer_img2.png" class="slide__img"></image>
+                </div>
+                <div class="swiper-slide">
+                  <image src="../resources/images/pattern/main/employer_img3.png" class="slide__img"></image>
+                </div>
               </div>
-              <div class="swiper-slide">
-                <image src="../resources/images/pattern/main/employer_img2.png" class="slide__img"></image>
-              </div>
-              <div class="swiper-slide">
-                <image src="../resources/images/pattern/main/employer_img3.png" class="slide__img"></image>
-              </div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
 
       <!-- category section -->
       <section class="category-container">
@@ -336,12 +352,14 @@
 
       <!-- 악세사리 디테일 section -->
       <section class="acc-detail">
-        <div class="acc-detail__topimg">
-          <img src="../resources/images/pattern/main/sec6_necklases.png" alt="악세사리 목걸이" />
-          <div class="acc-detail__bottom">
-            <p class="acc-detail__txt">Explore COCO CRUSH bracelets, rings and necklaces, available in 18K BEIGE GOLD,
-              yellow gold or white gold*, with or without diamonds.</p>
-            <img src="../resources/images/pattern/main/sec6_necklaces_couple.webp" alt="악세사리 커플인물사진" />
+        <div class="inner">
+          <div class="acc-detail__topimg">
+            <img src="../resources/images/pattern/main/sec6_necklases.png" alt="악세사리 목걸이" />
+            <div class="acc-detail__bottom">
+              <p class="acc-detail__txt">Explore COCO CRUSH bracelets, rings and necklaces, available in 18K BEIGE GOLD,
+                yellow gold or white gold*, with or without diamonds.</p>
+              <img src="../resources/images/pattern/main/sec6_necklaces_couple.webp" alt="악세사리 커플인물사진" />
+            </div>
           </div>
         </div>
       </section>
@@ -432,6 +450,11 @@
           </div>
         </div>
       </section>
+
+
+
+
+
     </main>
     <footer id="footer">
       <div class="footer-top">
