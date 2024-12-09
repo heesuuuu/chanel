@@ -171,16 +171,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const video = document.querySelector(".mod-vid");
   const controlWrapper = document.querySelector(".tvid__control-wrapper");
   const replayDiv = document.querySelector('.modvid-audio__toggle.replay'); // replay div
-  const videoElement = document.querySelector('.mod-vid'); // 비디오 요소
+  const audioOffIcon = document.querySelector(".modvid-audio__icon.audio-off"); // 음소거 아이콘
+  const audioOnIcon = document.querySelector(".modvid-audio__icon.audio-on"); // 소리 켜짐 아이콘
+  const audioToggle = document.querySelectorAll(".sound"); // 오디오 토글 버튼
+
+  video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
+  audioOffIcon.style.display = "block";
+  audioOnIcon.style.display = "none";
+
+  // 음소거 상태 전환 (음소거 -> 소리 켜기, 소리 켜기 -> 음소거)
+  audioToggle.forEach(function (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+      if (video.muted) {
+        video.muted = false; // 음소거 해제
+        audioOffIcon.style.display = "none"; // 음소거 아이콘 숨김
+        audioOnIcon.style.display = "block"; // 소리 켜기 아이콘 표시
+      } else {
+        video.muted = true; // 음소거 활성화
+        audioOffIcon.style.display = "block"; // 음소거 아이콘 표시
+        audioOnIcon.style.display = "none"; // 소리 켜기 아이콘 숨김
+      }
+    });
+  });
 
   // Play 버튼 클릭 시 비디오 재생/일시정지
   playButton.addEventListener("click", function () {
     if (video.paused) {
       video.play();
-      video.muted = false; // 비디오 재생 시 소리를 기본적으로 활성화
       playButton.style.display = "none"; // Play 버튼 숨기기
       controlWrapper.style.display = "flex"; // 컨트롤 보이기
-      updateAudioIcons(); // 아이콘 업데이트
     } else {
       video.pause();
       playButton.style.display = "block"; // Play 버튼 보이기
@@ -197,8 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // 이벤트 리스너 추가
   replayDiv.addEventListener('click', () => {
     // 비디오를 처음부터 다시 재생
-    videoElement.currentTime = 0; // 동영상 재생 시간을 0초로 설정
-    videoElement.play(); // 동영상 재생 시작
+    video.currentTime = 0; // 동영상 재생 시간을 0초로 설정
+    video.play(); // 동영상 재생 시작
 
     // 페이지 새로고침
     setTimeout(() => {
