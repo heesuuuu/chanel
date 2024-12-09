@@ -174,6 +174,68 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioOffIcon = document.querySelector(".modvid-audio__icon.audio-off"); // 음소거 아이콘
   const audioOnIcon = document.querySelector(".modvid-audio__icon.audio-on"); // 소리 켜짐 아이콘
   const audioToggle = document.querySelectorAll(".sound"); // 오디오 토글 버튼
+  const navItems = document.querySelectorAll('.tvid__nav__item');
+  const videoContainer = document.querySelector('.tvid__video-container video');
+
+
+  // 첫 번째 nav item의 비디오 설정
+  const firstNavItem = navItems[0];
+  const firstVideoSrc = firstNavItem.getAttribute("data-video-src");
+
+  // 초기 상태: 첫 번째 비디오를 표시
+  if (firstVideoSrc) {
+    videoContainer.src = firstVideoSrc;
+  }
+
+  function setActiveItem(targetItem) {
+    // 모든 nav item의 active 상태 초기화
+    navItems.forEach((item) => item.classList.remove("active"));
+    // 선택된 item에만 active 클래스 추가
+    targetItem.classList.add("active");
+  }
+
+  // Play 버튼 클릭 시 첫 번째 nav item 활성화 및 비디오 재생
+  playButton.addEventListener("click", function () {
+    if (firstVideoSrc) {
+      videoContainer.src = firstVideoSrc;
+      videoContainer.play();
+
+      playButton.style.display = "none";
+      controlWrapper.style.display = "flex";
+
+      // 첫 번째 nav item에 active 적용
+      setActiveItem(firstNavItem);
+    }
+  });
+
+
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const videoSrc = item.getAttribute('data-video-src');
+
+      if (videoSrc) {
+        videoContainer.src = videoSrc;
+        videoContainer.play(); // 클릭 시 자동 재생
+
+
+         // Play 버튼 숨김
+         playButton.style.display = "none";
+         controlWrapper.style.display = "flex";
+         
+        // 클릭된 nav item에만 active 적용
+        setActiveItem(item);
+      }
+    });
+  });
+
+
+  // 비디오 정지 상태: 첫 번째 비디오를 표시
+  video.addEventListener("pause", function () {
+    videoContainer.src = firstVideoSrc;
+    setActiveItem(firstNavItem);
+  });
+
 
   video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
   audioOffIcon.style.display = "block";
@@ -194,23 +256,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Play 버튼 클릭 시 비디오 재생/일시정지
-  playButton.addEventListener("click", function () {
-    if (video.paused) {
-      video.play();
-      playButton.style.display = "none"; // Play 버튼 숨기기
-      controlWrapper.style.display = "flex"; // 컨트롤 보이기
-    } else {
-      video.pause();
-      playButton.style.display = "block"; // Play 버튼 보이기
-      controlWrapper.style.display = "none"; // 컨트롤 숨기기
-    }
-  });
 
   // 비디오가 끝났을 때 Play 버튼 보이고 컨트롤 숨기기
   video.addEventListener("ended", function () {
     playButton.style.display = "flex";
     controlWrapper.style.display = "none";
+
+    // 비디오를 첫 번째 nav item으로 리셋
+    videoContainer.src = firstVideoSrc;
+    setActiveItem(firstNavItem);
   });
 
   // 이벤트 리스너 추가
@@ -226,6 +280,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+function debounce(func, wait = 20, immediate = true) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+/*-----------------------------------------------------------*/
+/* img motion                                               */
+/*-----------------------------------------------------------*/
+
+const sliderImages = document.querySelectorAll('.slide-in');
+
+function checkSlide(e) {
+  sliderImages.forEach(sliderImage => {
+    // halfway through the image
+    const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+    // bottom of the image
+    const imageBottom = sliderImage.offsetTop + sliderImage.height;
+    const isHalfShown = slideInAt > sliderImage.offsetTop;
+    const isNotScrolledPast = window.scrollY < imageBottom;
+    if (isHalfShown && isNotScrolledPast) {
+      sliderImage.classList.add('active');
+    } else {
+      sliderImage.classList.remove('active');
+    }
+
+    console.log(slideInAt);
+  });
+}
+
+window.addEventListener('scroll', debounce(checkSlide));
 
 /*-----------------------------------------------------------*/
 /* GSAP Cursor                                               */

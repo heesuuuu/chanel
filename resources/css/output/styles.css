@@ -1234,6 +1234,18 @@ legend {
 .acc-detail .acc-detail__topimg > img {
   width: 250px;
   margin: 30px 50px;
+  float: left;
+}
+.acc-detail .slide-in {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.acc-detail .acc-img.slide-in {
+  transform: translateX(-30%) scale(0.95);
+}
+.acc-detail .slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
 }
 .acc-detail .acc-detail__bottom {
   display: flex;
@@ -1463,10 +1475,10 @@ legend {
   align-items: center;
   transition: all 0.2s;
 }
-.tvid__nav__item:hover {
+.tvid__nav__item:hover, .tvid__nav__item.active {
   background-color: rgba(99, 99, 99, 0.25);
 }
-.tvid__nav__item:hover .tvid__nav__img {
+.tvid__nav__item:hover .tvid__nav__img, .tvid__nav__item.active .tvid__nav__img {
   outline: 1px solid white;
   outline-offset: 6px;
   transition: all 0.1s;
