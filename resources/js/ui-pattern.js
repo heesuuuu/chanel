@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const video = document.querySelector(".cocovid-boxvid");
   const audioOffIcon = document.querySelector(".audio-off"); // 음소거 아이콘
   const audioOnIcon = document.querySelector(".audio-on"); // 소리 켜짐 아이콘
-  const audioToggle = document.querySelectorAll(".cocovid__audio-toggle"); // 오디오 토글 버튼
+  const audioToggle = document.querySelectorAll(".sound"); // 오디오 토글 버튼
 
 
   video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
@@ -143,44 +143,10 @@ document.addEventListener("DOMContentLoaded", function () {
   video.addEventListener("ended", function () {
     playButton.style.display = "flex";
   });
-});
-
-/*-----------------------------------------------------------*/
-/* MODEL video paly Cursor                                               */
-/*-----------------------------------------------------------*/
-
-document.addEventListener("DOMContentLoaded", function () {
-  const playButton = document.querySelector(".mod-playcircle");
-  const video = document.querySelector(".mod-vid");
-  const controlWrapper = document.querySelector(".tvid__control-wrapper");
-
-  // Play 버튼 클릭 시 비디오 재생/일시정지
-  playButton.addEventListener("click", function () {
-    if (video.paused) {
-      video.play();
-      video.muted = false; // 비디오 재생 시 소리를 기본적으로 활성화
-      playButton.style.display = "none"; // Play 버튼 숨기기
-      controlWrapper.style.display = "flex"; // 컨트롤 보이기
-      updateAudioIcons(); // 아이콘 업데이트
-    } else {
-      video.pause();
-      playButton.style.display = "block"; // Play 버튼 보이기
-      controlWrapper.style.display = "none"; // 컨트롤 숨기기
-    }
-  });
-
-  // 비디오가 끝났을 때 Play 버튼 보이고 컨트롤 숨기기
-  video.addEventListener("ended", function () {
-    playButton.style.display = "flex";
-    controlWrapper.style.display = "none";
-  });
-
-
-
 
   // 비디오 요소 및 replay div 선택
   const videoElement = document.querySelector('.cocovid-boxvid'); // 비디오 요소
-  const replayDiv = document.querySelector('.cocovid__audio-toggle.replay'); // replay div
+  const replayDiv = document.querySelector('.replay'); // replay div
 
 
   // 이벤트 리스너 추가
@@ -194,21 +160,70 @@ document.addEventListener("DOMContentLoaded", function () {
       location.reload(); // 0초 후 페이지 새로고침
     }, 0);
   });
+});
 
-  // // cocovid-container와 비디오 요소 선택
-  // const container = document.querySelector('.cocovid-container');
-  // const videoStop = document.querySelector('.cocovid-boxvid');
+/*-----------------------------------------------------------*/
+/* MODEL video paly Cursor                                               */
+/*-----------------------------------------------------------*/
 
-  // // 이벤트 리스너 추가
-  // container.addEventListener('click', () => {
-  //   if (!videoStop.paused) {
-  //     // 비디오가 재생 중이면 멈춤
-  //     videoStop.pause();
-  //   } else {
-  //     // 비디오가 멈춰 있으면 재생
-  //     videoStop.play();
-  //   }
-  // });
+document.addEventListener("DOMContentLoaded", function () {
+  const playButton = document.querySelector(".mod-playcircle");
+  const video = document.querySelector(".mod-vid");
+  const controlWrapper = document.querySelector(".tvid__control-wrapper");
+  const replayDiv = document.querySelector('.modvid-audio__toggle.replay'); // replay div
+  const audioOffIcon = document.querySelector(".modvid-audio__icon.audio-off"); // 음소거 아이콘
+  const audioOnIcon = document.querySelector(".modvid-audio__icon.audio-on"); // 소리 켜짐 아이콘
+  const audioToggle = document.querySelectorAll(".sound"); // 오디오 토글 버튼
+
+  video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
+  audioOffIcon.style.display = "block";
+  audioOnIcon.style.display = "none";
+
+  // 음소거 상태 전환 (음소거 -> 소리 켜기, 소리 켜기 -> 음소거)
+  audioToggle.forEach(function (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+      if (video.muted) {
+        video.muted = false; // 음소거 해제
+        audioOffIcon.style.display = "none"; // 음소거 아이콘 숨김
+        audioOnIcon.style.display = "block"; // 소리 켜기 아이콘 표시
+      } else {
+        video.muted = true; // 음소거 활성화
+        audioOffIcon.style.display = "block"; // 음소거 아이콘 표시
+        audioOnIcon.style.display = "none"; // 소리 켜기 아이콘 숨김
+      }
+    });
+  });
+
+  // Play 버튼 클릭 시 비디오 재생/일시정지
+  playButton.addEventListener("click", function () {
+    if (video.paused) {
+      video.play();
+      playButton.style.display = "none"; // Play 버튼 숨기기
+      controlWrapper.style.display = "flex"; // 컨트롤 보이기
+    } else {
+      video.pause();
+      playButton.style.display = "block"; // Play 버튼 보이기
+      controlWrapper.style.display = "none"; // 컨트롤 숨기기
+    }
+  });
+
+  // 비디오가 끝났을 때 Play 버튼 보이고 컨트롤 숨기기
+  video.addEventListener("ended", function () {
+    playButton.style.display = "flex";
+    controlWrapper.style.display = "none";
+  });
+
+  // 이벤트 리스너 추가
+  replayDiv.addEventListener('click', () => {
+    // 비디오를 처음부터 다시 재생
+    video.currentTime = 0; // 동영상 재생 시간을 0초로 설정
+    video.play(); // 동영상 재생 시작
+
+    // 페이지 새로고침
+    setTimeout(() => {
+      location.reload(); // 0초 후 페이지 새로고침
+    }, 0);
+  });
 
 });
 
