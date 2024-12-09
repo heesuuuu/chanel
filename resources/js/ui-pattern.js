@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const video = document.querySelector(".cocovid-boxvid");
   const audioOffIcon = document.querySelector(".audio-off"); // 음소거 아이콘
   const audioOnIcon = document.querySelector(".audio-on"); // 소리 켜짐 아이콘
-  const audioToggle = document.querySelectorAll(".cocovid__audio-toggle"); // 오디오 토글 버튼
+  const audioToggle = document.querySelectorAll(".sound"); // 오디오 토글 버튼
 
 
   video.muted = true; //초기 상태: 음소거 및 음소거 아이콘 표시
@@ -143,6 +143,23 @@ document.addEventListener("DOMContentLoaded", function () {
   video.addEventListener("ended", function () {
     playButton.style.display = "flex";
   });
+
+  // 비디오 요소 및 replay div 선택
+  const videoElement = document.querySelector('.cocovid-boxvid'); // 비디오 요소
+  const replayDiv = document.querySelector('.replay'); // replay div
+
+
+  // 이벤트 리스너 추가
+  replayDiv.addEventListener('click', () => {
+    // 비디오를 처음부터 다시 재생
+    videoElement.currentTime = 0; // 동영상 재생 시간을 0초로 설정
+    videoElement.play(); // 동영상 재생 시작
+
+    // 페이지 새로고침
+    setTimeout(() => {
+      location.reload(); // 0초 후 페이지 새로고침
+    }, 0);
+  });
 });
 
 /*-----------------------------------------------------------*/
@@ -153,6 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const playButton = document.querySelector(".mod-playcircle");
   const video = document.querySelector(".mod-vid");
   const controlWrapper = document.querySelector(".tvid__control-wrapper");
+  const replayDiv = document.querySelector('.modvid-audio__toggle.replay'); // replay div
+  const videoElement = document.querySelector('.mod-vid'); // 비디오 요소
 
   // Play 버튼 클릭 시 비디오 재생/일시정지
   playButton.addEventListener("click", function () {
@@ -175,14 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
     controlWrapper.style.display = "none";
   });
 
-
-
-
-  // 비디오 요소 및 replay div 선택
-  const videoElement = document.querySelector('.cocovid-boxvid'); // 비디오 요소
-  const replayDiv = document.querySelector('.cocovid__audio-toggle.replay'); // replay div
-
-
   // 이벤트 리스너 추가
   replayDiv.addEventListener('click', () => {
     // 비디오를 처음부터 다시 재생
@@ -194,21 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
       location.reload(); // 0초 후 페이지 새로고침
     }, 0);
   });
-
-  // // cocovid-container와 비디오 요소 선택
-  // const container = document.querySelector('.cocovid-container');
-  // const videoStop = document.querySelector('.cocovid-boxvid');
-
-  // // 이벤트 리스너 추가
-  // container.addEventListener('click', () => {
-  //   if (!videoStop.paused) {
-  //     // 비디오가 재생 중이면 멈춤
-  //     videoStop.pause();
-  //   } else {
-  //     // 비디오가 멈춰 있으면 재생
-  //     videoStop.play();
-  //   }
-  // });
 
 });
 
