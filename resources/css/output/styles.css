@@ -1234,7 +1234,6 @@ legend {
 .acc-detail .acc-detail__topimg > img {
   width: 250px;
   margin: 30px 50px;
-  float: left;
 }
 .acc-detail .slide-in {
   opacity: 0;
@@ -1254,15 +1253,21 @@ legend {
   color: var(--font-color-white);
   width: 100%;
   font-size: 17px;
-  line-height: 32px;
+  line-height: 25px;
   font-weight: 500;
 }
+@media (min-width: 1024px) {
+  .acc-detail .acc-detail__bottom .acc-detail__txt {
+    font-size: 1.75rem;
+  }
+}
 .acc-detail .acc-detail__bottom img {
-  width: 353px;
-  height: auto;
+  width: auto;
+  max-height: 660px;
   margin: 0 0 0 17px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 @media (min-width: 600px) and (max-width: 1023px) {
