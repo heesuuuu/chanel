@@ -1,6 +1,3 @@
 {
-    "rewrites": [{ "source": "/", "destination": "/index.html" }],
-    "scripts": {
-        "build": "sass resources/scss:resources/css"
-    }
+    "rewrites": [{ "source": "/", "destination": "/index.html" }]
 }
