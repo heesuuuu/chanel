@@ -27,7 +27,7 @@
 ---
 
 ## 📁 폴더 구조
-
+```
 📦 root
 ├── pages/                 # HTML 페이지
 │   ├── layout/            # 전체 레이아웃 관련 HTML
