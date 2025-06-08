@@ -1,21 +1,27 @@
 .main {
     overflow: hidden;
     width: 100%;
-    height: 690px;
+    height: 800px;
     flex-shrink: 0;
     position: relative;
+    background-color: #f3f1f0;
 
-    .main-img {
+    .main-section {
         position: relative;
+
+        width: 100vw;
+        height: 800px;
     }
-    .main-img img {
-        width: 100%;
-        height: 690px;
-        object-fit: cover;
-        background-position: center;
+    .main-img {
+        width: 100vw;
+        height: 800px;
+        background-image: url("../../images/pattern/main/model_profile_01.webp");
+        background-repeat: no-repeat;
         background-size: cover;
+        background-position: 20% 35%;
+        margin: 0 auto;
     }
-    .main-img::after {
+    .main-section::after {
         content: "";
         display: block;
         position: absolute;
@@ -24,7 +30,7 @@
         top: 0;
         left: 0;
         z-index: 0;
-        background: linear-gradient(180deg, rgb(103 103 103 / 4%), rgb(201 196 196 / 3%), #000 95.89%);
+        background: linear-gradient(180deg, rgb(103 103 103 / 4%), rgb(201 196 196 / 3%), #000 101%);
     }
 
     .mercury {
@@ -347,46 +353,48 @@
 
         .swiper {
             width: 100%;
-            height: 100%;
+            height: 900px;
             .swiper-slide {
+                position: relative;
+
                 text-align: center;
                 font-size: 18px;
-                background: #fff;
-                display: flex;
                 justify-content: center;
-                align-items: center;
-                height: 100%;
                 // overflow: visible;
                 img {
-                    width: 100%;
-                    height: 100%;
-                    flex-shrink: 0;
-                    object-fit: cover;
-                    position: relative;
-                }
-                .add-txt {
-                    width: 100%;
-                    height: 100%;
-                    font-size: 120px;
-                    font-weight: 500;
-                    color: white;
                     position: absolute;
-                    top: 356px;
-                    left: 0;
-                    z-index: 3;
-                    transform: translate(5%, 55%);
-                    text-wrap: nowrap;
-                    animation: add-txt 10s linear infinite;
-                    @keyframes add-txt {
-                        0% {
-                            transform: translateX(0);
+                    width: 100vw;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                }
+                .swiper-txt {
+                    position: absolute;
+                    display: flex;
+                    top: 60%;
+                    .add-txt {
+                        width: 100%;
+                        height: 100%;
+                        font-family: none;
+                        font-size: 160px;
+                        font-weight: 500;
+                        color: white;
+                        left: 0;
+                        z-index: 3;
+                        // transform: translate(5%, 55%);
+                        text-wrap: nowrap;
+                        // animation: add-txt 15s linear infinite;
+                        // @keyframes add-txt {
+                        //     0% {
+                        //         transform: translateX(0);
+                        //     }
+                        //     100% {
+                        //         transform: translateX(-100%);
+                        //     }
+                        // }
+                        @include tabletMore {
+                            top: 545px;
                         }
-                        100% {
-                            transform: translateX(-80%);
-                        }
-                    }
-                    @include tabletMore {
-                        top: 545px;
                     }
                 }
             }
@@ -566,8 +574,8 @@
             font-size: 17px;
             line-height: 25px;
             font-weight: 500;
-            @include tablettMore {
-                font-size: 18 px;
+            @include tabletMore {
+                font-size: 18px;
             }
         }
         img {
@@ -605,7 +613,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 70vh;
+        height: 60vh;
         display: flex;
         position: absolute;
         top: 0%;

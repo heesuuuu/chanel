@@ -90,7 +90,7 @@
       height: 100%;
       color: var(--font-color-black);
       font-family: "chanel";
-      font-size: 2.1875rem;
+      font-size: 3rem;
       letter-spacing: 0.25rem;
     }
 
@@ -108,6 +108,8 @@
   }
   .gnb__depth1 {
     display: flex;
+        gap: 30px;
+
     > li {
       position: relative;
       &:hover {
@@ -136,7 +138,6 @@
         justify-content: center;
         align-items: center;
         height: 102px;
-        padding: 0 50px;
         font-size: 1.8rem;
         &:hover {
           text-decoration: none;
@@ -145,7 +146,9 @@
           position: relative;
           display: flex;
           align-items: center;
-          height: 100%;
+          height: auto;
+          font-size: 14px;
+font-family: chanel;
           &::after {
             content: "";
             position: absolute;
@@ -266,7 +269,7 @@
   position: fixed;
   top: 0;
   left: 100%;
-  width: 100%;
+  width: 50%;
   height: 100%;
   padding: $p-mobile;
   background: rgba(255, 255, 255, 0.9);
@@ -275,6 +278,12 @@
   &.active {
     display: block;
     left: 0;
+  }
+
+  .close{
+    @include posX;
+    right: 0;
+    width: fit-content;
   }
 }
 
